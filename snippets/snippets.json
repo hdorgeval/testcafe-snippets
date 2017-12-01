@@ -1,0 +1,30 @@
+{
+    "tc-type-text": {
+      "prefix": "tc-type-text-then-press-tab",
+      "body": [
+        "await t",
+        "\t.setTestSpeed(${1:0.7})",
+        "\t.expect(${2:selector}.hasAttribute(\"disabled\")).notOk()",
+        "\t.click(${2:selector})",
+        "\t.typeText(${2:selector}, \"${3:john doe}\", {replace: true\\})",
+        "\t.pressKey(\"tab\");",
+        ""
+      ],
+      "description": "type a text in an input box and press tab"
+    },
+    "tc-copy-paste-text": {
+        "prefix": "tc-copy-paste-text-then-press-tab",
+        "body": [
+          "await t",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.expect(${2:selector}.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(${2:selector})",
+          "\t.typeText(${2:selector}, \"${3:john doe}\", {replace: true, paste: true\\})",
+          "\t.pressKey(\"tab\");",
+          ""
+        ],
+        "description": "Copy paste a text in an input box and press tab"
+      }
+}
+
+
