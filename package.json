@@ -1,26 +1,36 @@
 {
-    "name": "hdorgeval-testcafe-snippets",
-    "displayName": "testcafe-snippets",
-    "description": "Code snippets for TestCafe",
-    "version": "1.0.0",
-    "publisher": "hdorgeval",
-    "icon": "images/icon.png",
-    "engines": {
-        "vscode": "^1.18.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "typescript",
-                "path": "./snippets/snippets.json"
-            },
-            {
-                "language": "javascript",
-                "path": "./snippets/snippets.json"
-            }
-        ]
-    }
+  "name": "hdorgeval-testcafe-snippets",
+  "displayName": "testcafe-snippets",
+  "description": "Code snippets for TestCafe",
+  "version": "1.0.0",
+  "publisher": "hdorgeval",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.18.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdorgeval/testcafe-snippets.git"
+  },
+  "author": "Henri d'Orgeval",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdorgeval/testcafe-snippets/issues"
+  },
+  "homepage": "https://github.com/hdorgeval/testcafe-snippets#readme"
 }
