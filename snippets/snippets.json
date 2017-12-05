@@ -7,8 +7,7 @@
         "\t.expect(${2:selector}.hasAttribute(\"disabled\")).notOk()",
         "\t.click(${2:selector})",
         "\t.typeText(${2:selector}, \"${3:john doe}\", {replace: true\\})",
-        "\t.pressKey(\"tab\");",
-        ""
+        "\t.pressKey(\"tab\");"
       ],
       "description": "type a text in an input box and press tab"
     },
@@ -20,8 +19,7 @@
           "\t.expect(${2:selector}.hasAttribute(\"disabled\")).notOk()",
           "\t.click(${2:selector})",
           "\t.typeText(${2:selector}, \"${3:john doe}\", {replace: true, paste: true\\})",
-          "\t.pressKey(\"tab\");",
-          ""
+          "\t.pressKey(\"tab\");"
         ],
         "description": "Copy paste a text in an input box and press tab"
       }
