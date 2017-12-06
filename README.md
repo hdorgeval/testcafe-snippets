@@ -8,7 +8,7 @@ This Visual Studio Code Extension provides code snippets for TestCafe.
 
 Use the `tc-` prefix to access all snippets:
 
-![available code snippets](./images/screenshot01.png)
+![available code snippets](./images/screenshot02.png)
 
 ## Supported languages (file extensions)
 
