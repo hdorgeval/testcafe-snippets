@@ -1,6 +1,6 @@
 {
   "name": "hdorgeval-testcafe-snippets",
-  "displayName": "testcafe-snippets",
+  "displayName": "TestCafe Snippets",
   "description": "Code snippets for TestCafe",
   "version": "1.0.0",
   "publisher": "hdorgeval",
@@ -8,8 +8,14 @@
   "engines": {
     "vscode": "^1.18.0"
   },
+  "preview": true,
   "categories": [
     "Snippets"
+  ],
+  "keywords": [
+    "testcafe",
+    "snippets",
+    "e2e"
   ],
   "contributes": {
     "snippets": [

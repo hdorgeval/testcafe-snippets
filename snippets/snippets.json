@@ -2,11 +2,11 @@
     "tc-type-text": {
       "prefix": "tc-type-text-then-press-tab",
       "body": [
-        "await t",
+        "await t // type a text in an input box and press tab",
         "\t.setTestSpeed(${1:0.7})",
-        "\t.expect(${2:selector}.hasAttribute(\"disabled\")).notOk()",
-        "\t.click(${2:selector})",
-        "\t.typeText(${2:selector}, \"${3:john doe}\", {replace: true\\})",
+        "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk()",
+        "\t.click(${2:input})",
+        "\t.typeText(${2:input}, \"${3:john doe}\", {replace: true\\})",
         "\t.pressKey(\"tab\");"
       ],
       "description": "type a text in an input box and press tab"
@@ -14,14 +14,57 @@
     "tc-copy-paste-text": {
         "prefix": "tc-copy-paste-text-then-press-tab",
         "body": [
-          "await t",
+          "await t // copy paste a text in an input box and press tab",
           "\t.setTestSpeed(${1:0.7})",
-          "\t.expect(${2:selector}.hasAttribute(\"disabled\")).notOk()",
-          "\t.click(${2:selector})",
-          "\t.typeText(${2:selector}, \"${3:john doe}\", {replace: true, paste: true\\})",
+          "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(${2:input})",
+          "\t.typeText(${2:input}, \"${3:john doe}\", {replace: true, paste: true\\})",
           "\t.pressKey(\"tab\");"
         ],
         "description": "Copy paste a text in an input box and press tab"
+      },
+      "tc-select-an-option-by-content": {
+        "prefix": "tc-select-an-option-by-content",
+        "body": [
+          "await t // select an option by its content and press tab",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(${2:select})",
+          "\t.click(${2:select}",
+          "\t\t.find(\"option\")",
+          "\t\t.withText(\"${3:content}\")",
+          "\t\t.nth(0))",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "Select an option by content"
+      },
+      "tc-select-first-option": {
+        "prefix": "tc-select-first-option",
+        "body": [
+          "await t // select the first option and press tab",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(${2:select})",
+          "\t.click(${2:select}",
+          "\t\t.find(\"option\")",
+          "\t\t.nth(0))",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "Select first option"
+      },
+      "tc-select-last-option": {
+        "prefix": "tc-select-last-option",
+        "body": [
+          "await t // select the last option and press tab",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(${2:select})",
+          "\t.click(${2:select}",
+          "\t\t.find(\"option\")",
+          "\t\t.nth(-1))",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "Select last option"
       }
 }
 
