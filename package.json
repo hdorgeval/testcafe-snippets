@@ -34,7 +34,7 @@
     "url": "git+https://github.com/hdorgeval/testcafe-snippets.git"
   },
   "author": "Henri d'Orgeval",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/hdorgeval/testcafe-snippets/issues"
   },
