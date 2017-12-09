@@ -65,6 +65,35 @@
           "\t.pressKey(\"tab\");"
         ],
         "description": "Select last option"
+      },
+      "tc-navigate-to-url": {
+        "prefix": "tc-navigate-to-url",
+        "body": [
+          "await t // navigate to url",
+          "\t.navigateTo(\"${url}\");"
+        ],
+        "description": "Navigate to url"
+      },
+      "tc-select-a-radio-button-by-value": {
+        "prefix": "tc-select-a-radio-button-by-value",
+        "body": [
+          "// select a radio button by it's input value",
+          "const radioButtonValue = \"${1:value}\"; // the value to search", 
+          "const radioButton = Selector('input[type=\"radio\"]')",
+          "\t.withAttribute(\"name\", \"${2:groupName}\") // select all radio buttons within the group ${2:groupName}",
+          "\t\t.filter((node) => {",
+          "\t\t\tif (node && node.value === radioButtonValue) {",
+          "\t\t\t\treturn true;",
+          "\t\t\t\\}",
+          "\t\t\treturn false;",
+          "\t\t}, {radioButtonValue})",
+          "\t\t.nth(0);",
+          "await t",
+          "\t.expect(radioButton.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(radioButton)",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "Select a radio button by it's input value"
       }
 }
 

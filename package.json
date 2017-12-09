@@ -2,7 +2,7 @@
   "name": "testcafe-snippets",
   "displayName": "TestCafe Snippets",
   "description": "Code snippets for TestCafe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "hdorgeval",
   "icon": "images/icon.png",
   "engines": {
@@ -21,11 +21,11 @@
     "snippets": [
       {
         "language": "typescript",
-        "path": "./snippets/snippets.json"
+        "path": "./snippets/ts-snippets.json"
       },
       {
         "language": "javascript",
-        "path": "./snippets/snippets.json"
+        "path": "./snippets/js-snippets.json"
       }
     ]
   },
