@@ -70,7 +70,7 @@
         "prefix": "tc-navigate-to-url",
         "body": [
           "await t // navigate to url",
-          "\t.navigateTo(\"${url}\");"
+          "\t.navigateTo(\"${1:url}\");"
         ],
         "description": "Navigate to url"
       },
@@ -86,7 +86,7 @@
           "\t\t\t\treturn true;",
           "\t\t\t\\}",
           "\t\t\treturn false;",
-          "\t\t}, {radioButtonValue})",
+          "\t\t}, {radioButtonValue\\})",
           "\t\t.nth(0);",
           "await t",
           "\t.expect(radioButton.hasAttribute(\"disabled\")).notOk()",
@@ -94,7 +94,21 @@
           "\t.pressKey(\"tab\");"
         ],
         "description": "Select a radio button by it's input value"
+      },
+      "tc-set-window-size": {
+        "prefix": "tc-set-window-size",
+        "body": [
+          "await t // set the window size",
+          "\t.resizeWindow(${1:1024}, ${2:600});"
+        ],
+        "description": "Set Window size"
+      },
+      "tc-maximize-window": {
+        "prefix": "tc-maximize-window",
+        "body": [
+          "await t // set the window size to it's max size",
+          "\t.maximizeWindow();"
+        ],
+        "description": "Maximize Window"
       }
 }
-
-
