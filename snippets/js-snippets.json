@@ -95,13 +95,13 @@
         ],
         "description": "Select a radio button by it's input value"
       },
-      "tc-set-window-size": {
-        "prefix": "tc-set-window-size",
+      "tc-set-window-size-to-custom-width-and-height": {
+        "prefix": "tc-set-window-size-to-custom-width-and-height",
         "body": [
           "await t // set the window size",
           "\t.resizeWindow(${1:1024}, ${2:600});"
         ],
-        "description": "Set Window size"
+        "description": "Set Window size to custom width ad height"
       },
       "tc-maximize-window": {
         "prefix": "tc-maximize-window",
@@ -110,5 +110,13 @@
           "\t.maximizeWindow();"
         ],
         "description": "Maximize Window"
+      },
+      "tc-set-window-size-to-fit-device": {
+        "prefix": "tc-set-window-size-to-fit-device",
+        "body": [
+          "await t // set the window size to fit specific device (see: http://viewportsizes.com/)",
+          "\t.resizeWindowToFitDevice(\"${1|Galaxy Nexus,HTC One,HTC Windows Phone 8S,Huawei Ascend G510,Huawei Ascend Mate,Huawei Y300-0151,iPad,iPhone 5,iPhone 6,iPhone 6 Plus,LG G2,Microsoft Surface,Microsoft Surface Pro,Nexus 5,Nexus 7,Nokia Lumia 520,Nokia Lumia 1520,Samsung Galaxy S4 I9500,Sony VAIO Tap 20|}\", {portraitOrientation: ${2|true,false|}\\});"
+        ],
+        "description": "Set Window size to fit specific device"
       }
 }
