@@ -4,9 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2017-12-13
+### Added
+- tc-reload-browser
+- tc-import
+- tc-fixture-with-start-page
+- tc-test
+- tc-pause-test-for-client-side-debugging
+
 ## [1.0.3] - 2017-12-12
 ### Added
 - tc-set-window-size-to-fit-device
+
 ### Modified
 - tc-set-window-size => tc-set-window-size-to-custom-width-and-height
 

@@ -2,9 +2,23 @@
 
 This Visual Studio Code Extension provides code snippets for TestCafe.
 
-Use the `tc-` prefix to access all snippets:
+Use the `tc-` prefix to access snippets:
 
-![available code snippets](images/screenshot.png)
+- tc-type-text
+- tc-copy-paste-text
+- tc-select-an-option-by-content
+- tc-select-first-option
+- tc-select-last-option
+- tc-navigate-to-url
+- tc-select-a-radio-button-by-value
+- tc-maximize-window
+- tc-set-window-size-to-custom-width-and-height
+- tc-set-window-size-to-fit-device
+- tc-reload-browser
+- tc-import
+- tc-fixture-with-start-page
+- tc-test
+- tc-pause-test-for-client-side-debugging
 
 ## Supported languages (file extensions)
 

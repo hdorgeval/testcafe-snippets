@@ -119,7 +119,51 @@
           "\t.resizeWindowToFitDevice(\"${1|Galaxy Nexus,HTC One,HTC Windows Phone 8S,Huawei Ascend G510,Huawei Ascend Mate,Huawei Y300-0151,iPad,iPhone 5,iPhone 6,iPhone 6 Plus,LG G2,Microsoft Surface,Microsoft Surface Pro,Nexus 5,Nexus 7,Nokia Lumia 520,Nokia Lumia 1520,Samsung Galaxy S4 I9500,Sony VAIO Tap 20|}\", {portraitOrientation: ${2|true,false|}\\});"
         ],
         "description": "Set Window size to fit specific device"
+      },
+      "tc-reload-browser": {
+        "prefix": "tc-reload-browser",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "const reloadBrowser = ClientFunction(() => window.location.reload(true));",
+          "await reloadBrowser();"
+        ],
+        "description": "Reload Browser"
+      },
+      "tc-import": {
+        "prefix": "tc-import",
+        "body": [
+          "import \"testcafe\";",
+          "import {ClientFunction, Selector\\} from \"testcafe\";"
+        ],
+        "description": "TestCafe Import Statements"
+      },
+      "tc-fixture-with-start-page": {
+        "prefix": "tc-fixture-with-start-page",
+        "body": [
+          "fixture(\"${1:My Fixture}\")",
+          "\t.page(\"${2|http://myurl,http://devexpress.github.io/testcafe/example|}\");"
+        ],
+        "description": "TestCafe Fixture with a Start Page"
+      },
+      "tc-test": {
+        "prefix": "tc-test",
+        "body": [
+          "test(\"${1:My Test}\", async (t) => {",
+          "\t$0",  
+          "\\});",
+          ""
+        ],
+        "description": "TestCafe Test"
+      },
+      "tc-pause-test-for-client-side-debugging": {
+        "prefix": "tc-pause-test-for-client-side-debugging",
+        "body": [
+          "await t.debug();",
+          ""
+        ],
+        "description": "Pause test for Client-Side Debugging"
       }
 }
+
 
 
