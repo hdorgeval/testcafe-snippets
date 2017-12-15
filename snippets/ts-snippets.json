@@ -162,6 +162,25 @@
           ""
         ],
         "description": "Pause test for Client-Side Debugging"
+      },
+      "tc-fixture-with-start-page-and-hooks": {
+        "prefix": "tc-fixture-with-start-page-and-hooks",
+        "body": [
+          "fixture(\"${1:My Fixture}\")",
+          "\t.page(\"${2|http://myurl,http://devexpress.github.io/testcafe/example|}\")",
+          "\t.before(async (ctx) => {",
+          "\t\t// inject in the fixture context any object you want to share beetween tests",
+          "\t\tctx.${3:config} = ${3:config};",
+          "\t\\})",
+          "\t.beforeEach(async (t) => {",
+          "\t\t// inject in the test context any input data needed to run the test",
+          "\t\tt.ctx.${4:inputData} = ${4:inputData};",
+          "\t\t// put here all actions that are common to all tests",
+          "\t\t$0",
+          "\t\\});",
+          ""
+        ],
+        "description": "TestCafe Fixture with a Start Page and Hooks"
       }
 }
 

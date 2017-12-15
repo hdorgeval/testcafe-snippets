@@ -17,6 +17,7 @@ Use the `tc-` prefix to access snippets:
 - tc-reload-browser
 - tc-import
 - tc-fixture-with-start-page
+- tc-fixture-with-start-page-and-hooks
 - tc-test
 - tc-pause-test-for-client-side-debugging
 
