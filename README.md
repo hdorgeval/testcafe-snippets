@@ -19,6 +19,7 @@ Use the `tc-` prefix to access snippets:
 - tc-fixture-with-start-page
 - tc-fixture-with-start-page-and-hooks
 - tc-test
+- tc-test-with-hooks
 - tc-pause-test-for-client-side-debugging
 
 ## Supported languages (file extensions)

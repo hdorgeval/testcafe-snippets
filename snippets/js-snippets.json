@@ -180,5 +180,22 @@
           ""
         ],
         "description": "TestCafe Fixture with a Start Page and Hooks"
+      },
+      "tc-test-with-hooks": {
+        "prefix": "tc-test-with-hooks",
+        "body": [
+          "test(\"${1:My Test}\", async (t) => {",
+          "\t$0",  
+          "\t\\})",
+          "\t.before(async (t) => {",
+          "\t\t// inject in the test context any input data needed to run this specific test",
+          "\t\tt.ctx.${2:inputData} = ${2:inputData};",
+          "\t\\})",
+          "\t.after(async (t) => {",
+          "\t\t// test finalization code",
+          "\t\\});",
+          ""
+        ],
+        "description": "TestCafe Test with hooks"
       }
 }
