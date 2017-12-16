@@ -198,6 +198,26 @@
           ""
         ],
         "description": "TestCafe Test with hooks"
+      },
+      "tc-get-selected-option": {
+        "prefix": "tc-get-selected-option",
+        "body": [
+          "// get the selected option",
+          "const select = Selector(\"select#${1|my-id,preferred-interface|}\");",
+          "const selectedOption = select",
+          "\t\t.find(\"option\")",
+          "\t\t\t.filter((node) => {",
+          "\t\t\t\tconst option = node as HTMLOptionElement;",
+          "\t\t\t\tif (option && option.selected) {",
+          "\t\t\t\t\treturn true;",
+          "\t\t\t\t\\}",
+          "\t\t\t\treturn false;",
+          "\t\t\t\\})",
+          "\t\t\t.nth(0);",
+          "const selectedOptionContent = await selectedOption.textContent;",
+          ""
+        ],
+        "description": "Get the selected option of a select element"
       }
 }
 
