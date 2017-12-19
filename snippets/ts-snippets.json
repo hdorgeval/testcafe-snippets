@@ -218,8 +218,29 @@
           ""
         ],
         "description": "Get the selected option of a select element"
+      },
+      "tc-iterate-over-selected-checkboxes": {
+        "prefix": "tc-iterate-over-selected-checkboxes",
+        "body": [
+          "// iterate over selected checkboxes",
+          "const selectedCheckboxes = Selector('input[type=\"checkbox\"]')",
+          "\t// select all checboxes whose name value is in a set of predefined values",
+          "\t.withAttribute(\"name\", /${1:custom-name}|remote|re-using|background|CI|analysis/)",
+          "\t\t.filter((node) => {",
+          "\t\t\tconst checkbox = node as HTMLInputElement;",
+          "\t\t\tif (checkbox && checkbox.checked) {",
+          "\t\t\t\treturn true;",
+          "\t\t\t\\}",
+          "\t\t\treturn false;",
+          "\t\t\\});",
+          "const checkedCount = await selectedCheckboxes.count;",
+          "const checkedIds = [];",
+          "for (let i = 0; i < checkedCount; i++) {",
+          "\tcheckedIds.push(await selectedCheckboxes.nth(i).id);",
+          "\\}",
+          "// now you can make your business check from the checkedIds array",
+          "$0"
+        ],
+        "description": "Iterate over selected Checkboxes"
       }
 }
-
-
-

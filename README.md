@@ -10,6 +10,7 @@ Use the `tc-` prefix to access snippets:
 - tc-select-first-option
 - tc-select-last-option
 - tc-get-selected-option
+- tc-iterate-over-selected-checkboxes
 - tc-navigate-to-url
 - tc-select-a-radio-button-by-value
 - tc-maximize-window
