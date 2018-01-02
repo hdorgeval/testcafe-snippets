@@ -38,6 +38,21 @@
         ],
         "description": "Select an option by content"
       },
+      "tc-select-an-option-by-exact-content": {
+        "prefix": "tc-select-an-option-by-exact-content",
+        "body": [
+          "await t // select an option by its exact content and press tab",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
+          "\t.click(${2:select})",
+          "\t.click(${2:select}",
+          "\t\t.find(\"option\")",
+          "\t\t.withText(new RegExp(`^${3:content}$`))",
+          "\t\t.nth(0))",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "Select an option by exact content"
+      },
       "tc-select-first-option": {
         "prefix": "tc-select-first-option",
         "body": [

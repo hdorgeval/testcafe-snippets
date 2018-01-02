@@ -7,6 +7,7 @@ Use the `tc-` prefix to access snippets:
 - tc-type-text
 - tc-copy-paste-text
 - tc-select-an-option-by-content
+- tc-select-an-option-by-exact-content
 - tc-select-first-option
 - tc-select-last-option
 - tc-get-selected-option
