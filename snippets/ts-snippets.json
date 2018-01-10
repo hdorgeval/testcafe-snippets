@@ -4,7 +4,7 @@
       "body": [
         "await t // type a text in an input box and press tab",
         "\t.setTestSpeed(${1:0.7})",
-        "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk()",
+        "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk({timeout: ${4:5000}\\})",
         "\t.click(${2:input})",
         "\t.typeText(${2:input}, \"${3:john doe}\", {replace: true\\})",
         "\t.pressKey(\"tab\");"
@@ -16,7 +16,7 @@
         "body": [
           "await t // copy paste a text in an input box and press tab",
           "\t.setTestSpeed(${1:0.7})",
-          "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk()",
+          "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk({timeout: ${4:5000}\\})",
           "\t.click(${2:input})",
           "\t.typeText(${2:input}, \"${3:john doe}\", {replace: true, paste: true\\})",
           "\t.pressKey(\"tab\");"
@@ -257,5 +257,15 @@
           "$0"
         ],
         "description": "Iterate over selected Checkboxes"
+      },
+      "tc-selector-with-options": {
+        "prefix": "tc-selector-with-options",
+        "body": [
+          "const ${1:mySelector} = Selector('${2:input#developer-name[type=\"text\"]'})",
+          "\t.with({timeout: ${3:5000}, visibilityCheck: true})",
+          "\t.nth(0);",
+          ""
+        ],
+        "description": "Create a Selector with explicit visibility check and timeout"
       }
 }

@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.10] - 2018-01-10
+### Added
+- tc-selector-with-options
+
+### modified
+- tc-type-text-then-press-tab
+    - add timeout 
+
+- tc-copy-paste-text-then-press-tab
+    - add timeout
+
 ## [1.0.9] - 2018-01-02
 ### Added
 - tc-select-an-option-by-exact-content
@@ -51,8 +62,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.0.0] - 2017-12-06
 ### Added
-- tc-type-text
-- tc-copy-paste-text
+- tc-type-text-then-press-tab
+- tc-copy-paste-text-then-press-tab
 - tc-select-an-option-by-content
 - tc-select-first-option
 - tc-select-last-option
