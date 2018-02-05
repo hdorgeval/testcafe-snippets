@@ -4,6 +4,7 @@
       "body": [
         "await t // type a text in an input box and press tab",
         "\t.setTestSpeed(${1:0.7})",
+        "\t.hover(${2:input})",
         "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk({timeout: ${4:5000}\\})",
         "\t.click(${2:input})",
         "\t.typeText(${2:input}, \"${3:john doe}\", {replace: true\\})",
@@ -16,6 +17,7 @@
         "body": [
           "await t // copy paste a text in an input box and press tab",
           "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:input})",
           "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk({timeout: ${4:5000}\\})",
           "\t.click(${2:input})",
           "\t.typeText(${2:input}, \"${3:john doe}\", {replace: true, paste: true\\})",
@@ -28,6 +30,7 @@
         "body": [
           "await t // select an option by its content and press tab",
           "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:select})",
           "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
           "\t.click(${2:select})",
           "\t.click(${2:select}",
@@ -43,6 +46,7 @@
         "body": [
           "await t // select an option by its exact content and press tab",
           "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:select})",
           "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
           "\t.click(${2:select})",
           "\t.click(${2:select}",
@@ -58,6 +62,7 @@
         "body": [
           "await t // select the first option and press tab",
           "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:select})",
           "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
           "\t.click(${2:select})",
           "\t.click(${2:select}",
@@ -72,6 +77,7 @@
         "body": [
           "await t // select the last option and press tab",
           "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:select})",
           "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk()",
           "\t.click(${2:select})",
           "\t.click(${2:select}",
@@ -104,6 +110,7 @@
           "\t\t}, {radioButtonValue\\})",
           "\t\t.nth(0);",
           "await t",
+          "\t.hover(radioButton)",
           "\t.expect(radioButton.hasAttribute(\"disabled\")).notOk()",
           "\t.click(radioButton)",
           "\t.pressKey(\"tab\");"
