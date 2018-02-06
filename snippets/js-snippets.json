@@ -271,5 +271,18 @@
           ""
         ],
         "description": "Create a Selector with explicit visibility check and timeout"
+      },
+      "tc-remove-text": {
+        "prefix": "tc-remove-text-then-press-tab",
+        "body": [
+          "await t // remove the text present in an input box and press tab",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:input})",
+          "\t.expect(${2:input}.hasAttribute(\"disabled\")).notOk({timeout: ${4:5000}\\})",
+          "\t.click(${2:input})",
+          "\t.pressKey(\"ctrl+a delete\")",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "remove the text present in an input box and press tab"
       }
 }
