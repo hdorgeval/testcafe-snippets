@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.13] - 2018-02-07
+### modified
+- tc-select-an-option-by-content
+- tc-select-an-option-by-exact-content
+- tc-select-first-option
+- tc-select-last-option
+- tc-select-a-radio-button-by-value
+- tc-remove-text-then-press-tab
+
 ## [1.0.12] - 2018-02-06
 ### Added
 - tc-remove-text-then-press-tab
