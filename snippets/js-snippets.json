@@ -284,5 +284,15 @@
           "\t.pressKey(\"tab\");"
         ],
         "description": "remove the text present in an input box and press tab"
+      },
+      "tc-wait-for-a-selector-to-disappear": {
+        "prefix": "tc-wait-for-a-selector-to-disappear",
+        "body": [
+          "// wait for a selector to disappear",
+          "const ${1:spinner} = Selector(\"${2:div.loading}\");",
+          "await t",
+          "\t.expect(${1:spinner}.exists).notOk({timeout: ${3:5000}\\});"
+        ],
+        "description": "Wait for a selector to disappear"
       }
 }

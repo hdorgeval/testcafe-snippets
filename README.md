@@ -16,6 +16,7 @@ Use the `tc-` prefix to access snippets:
 - tc-iterate-over-selected-checkboxes
 - tc-navigate-to-url
 - tc-select-a-radio-button-by-value
+- tc-wait-for-a-selector-to-disappear
 - tc-maximize-window
 - tc-set-window-size-to-custom-width-and-height
 - tc-set-window-size-to-fit-device
