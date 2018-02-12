@@ -4,6 +4,7 @@ This Visual Studio Code Extension provides code snippets for TestCafe.
 
 Use the `tc-` prefix to access snippets:
 
+- tc-client-side-ajax-request
 - tc-selector-with-options
 - tc-type-text
 - tc-copy-paste-text

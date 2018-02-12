@@ -297,5 +297,46 @@
           "\t.expect(${1:spinner}.exists).notOk({timeout: ${3:5000}\\});"
         ],
         "description": "Wait for a selector to disappear"
+      },
+      "tc-client-side-ajax-request": {
+        "prefix": "tc-client-side-ajax-request",
+        "body": [
+          "// Client-side ajax request",
+          "// client-side function used for sending the ajax request",
+          "const send = ClientFunction( (req: any) => {",
+          "\treturn new Promise( (resolve) => {",
+          "\t\tconst json: string = JSON.stringify(req);",
+          "\t\tconst $ = (window as any).jQuery;",
+          "\t\t$.ajax({",
+          "\t\t\tcontentType: \"application/json; charset=utf-8\",",
+          "\t\t\tdata: json,",
+          "\t\t\tdataType: \"json\",",
+          "\t\t\ttype: \"POST\",",
+          "\t\t\turl: \"https://reqres.in/api/users\"",
+          "\t\t\\})",
+          "\t\t.always( (httpResponse: XMLHttpRequest) => {",
+          "\t\t\tif (httpResponse && httpResponse.getAllResponseHeaders === undefined) {",
+          "\t\t\t\tresolve(httpResponse);",
+          "\t\t\t\treturn;",
+          "\t\t\t\\}",
+          "\t\t\tresolve({",
+          "\t\t\t\tresponseHeaders: httpResponse.getAllResponseHeaders(),",
+          "\t\t\t\tresponseText: httpResponse.responseText,",
+          "\t\t\t\tstatus: httpResponse.status,",
+          "\t\t\t\tstatusText: httpResponse.statusText,",
+          "\t\t\t});",
+          "\t\t});",
+          "\t});",
+          "\\});",
+          "// request object that will be posted to the backend server",
+          "const request = {",
+          "\tfirstName: \"john\",",
+          "\tlastName: \"Doe\",",
+          "\trequestTime: Date(),",
+          "\\};",
+          "// send request and get response",
+          "const response: XMLHttpRequest | any = await send(request);"
+        ],
+        "description": "Client-side ajax request"
       }
 }
