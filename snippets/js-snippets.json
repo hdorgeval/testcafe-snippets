@@ -295,6 +295,18 @@
         ],
         "description": "Wait for a selector to disappear"
       },
+      "tc-wait-for-a-selector-to-appear": {
+        "prefix": "tc-wait-for-a-selector-to-appear",
+        "body": [
+          "// wait for a selector to appear",
+          "const ${1:selector} = Selector(\"${2:div.popup}\")",
+          "\t.with({visibilityCheck: true})",
+          "\t.nth(0);",
+          "await t",
+          "\t.expect(${1:selector}.exists).ok({timeout: ${3:5000}\\});"
+        ],
+        "description": "Wait for a selector to appear"
+      },
       "tc-client-side-ajax-request": {
         "prefix": "tc-client-side-ajax-request",
         "body": [
