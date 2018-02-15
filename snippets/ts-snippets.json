@@ -350,5 +350,19 @@
           "const response: XMLHttpRequest | any = await send(request);"
         ],
         "description": "Client-side ajax request"
+      },
+      "tc-angularjs-enable-debug": {
+        "prefix": "tc-angularjs-enable-debug",
+        "body": [
+          "// enable Angular debug info",
+          "const reloadWithDebugInfo = ClientFunction(() => {",
+          "\tconst angular = (window as any).angular;",
+          "\tif (angular) {",
+          "\t\tangular.reloadWithDebugInfo();",
+          "\t}",
+          "});",
+          "await reloadWithDebugInfo();"
+        ],
+        "description": "Enable Angular Debug Info"
       }
 }

@@ -4,6 +4,7 @@
 
 Use the `tc-` prefix to access snippets:
 
+- tc-angularjs-enable-debug
 - tc-client-side-ajax-request
 - tc-copy-paste-text
 - tc-fixture-with-start-page
