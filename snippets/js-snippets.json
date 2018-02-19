@@ -361,5 +361,20 @@
           "await reloadWithDebugInfo();"
         ],
         "description": "Enable Angular Debug Info"
+      },
+      "tc-angularjs-get-object-from-scope": {
+        "prefix": "tc-angularjs-get-object-from-scope",
+        "body": [
+          "// get object from angularjs scope",
+          "const getCustomObject = ClientFunction( () => {",
+          "\tconst $ = window.jQuery;",
+          "\tconst scope = $(\"${1:selector}\").scope();",
+          "\t// inspect, in dev tools, the scope object to discover available objects",
+          "\tconsole.log(\"scope: \", scope);",
+          "\treturn scope.xxx;",
+          "\\});",
+          "const myObject = await getCustomObject();"
+        ],
+        "description": "Get object from angularjs scope"
       }
 }
