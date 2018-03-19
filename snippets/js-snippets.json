@@ -376,5 +376,29 @@
           "const myObject = await getCustomObject();"
         ],
         "description": "Get object from angularjs scope"
+      },
+      "tc-client-function-set-something-in-dom": {
+        "prefix": "tc-client-function-set-something-in-dom",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "// this sample will replace a checkbox label",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "// <label for=\"windows\">",
+          "//     <input type=\"radio\" name=\"os\" id=\"windows\" value=\"Windows\">",
+          "//     Windows",
+          "// </label>",
+          "const mySelector = Selector('label[for=\"windows\"]');",
+          "const setLabel = ClientFunction((selector, value) => {",
+            "\treturn new Promise( (resolve) => {",
+              "\t\tconst element = selector();",
+              "\t\t// check, in developper tools, what are the available properties in element",
+              "\t\tconsole.log('element:', element);",
+              "\t\telement.firstElementChild.nextSibling.replaceWith(value);",
+              "\t\tresolve();",
+          "\t});",
+          "});",
+          "await setLabel(mySelector, \"Windows 10\");"
+        ],
+        "description": "set a DOM property with a Client Function"
       }
 }
