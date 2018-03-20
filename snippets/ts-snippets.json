@@ -402,5 +402,36 @@
           "await setLabel(mySelector, \"Windows 10\");"
         ],
         "description": "set a DOM property with a Client Function"
+      },
+      "tc-client-function-get-something-from-dom": {
+        "prefix": "tc-client-function-get-something-from-dom",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "// this sample will get the details of a selected input",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "// <label for=\"windows\">",
+          "//     <input type=\"radio\" name=\"os\" id=\"windows\" value=\"Windows\">",
+          "//     Windows",
+          "// </label>",
+          "const inputSelector = Selector('label[for=\"windows\"] input');",
+          "const getInputDetails = ClientFunction((selector: Selector) => {",
+              "\treturn new Promise( (resolve) => {",
+                  "\t\tconst element: any = selector();",
+                  "\t\t// check, in developper tools, what are the available properties in element",
+                  "\t\t// tslint:disable-next-line:no-console",
+                  "\t\tconsole.log(\"element:\", element);",
+                  "\t\tresolve({",
+                      "\t\t\tchecked: element.checked,",
+                      "\t\t\tdisabled: element.disabled,",
+                      "\t\t\tid: element.id,",
+                      "\t\t\tname: element.name,",
+                      "\t\t\ttype: element.type,",
+                      "\t\t\tvalue: element.value,",
+                  "\t\t});",
+              "\t});",
+          "});",
+          "const inputDetails = await getInputDetails(inputSelector);"
+        ],
+        "description": "get an object from the DOM with a Client Function"
       }
 }
