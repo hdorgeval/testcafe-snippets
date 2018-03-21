@@ -10,6 +10,7 @@ Use the `tc-` prefix to access snippets:
 - tc-client-function-set-something-in-dom
 - tc-client-side-ajax-request
 - tc-copy-paste-text
+- tc-filter-hidden-elements
 - tc-fixture-with-start-page
 - tc-fixture-with-start-page-and-hooks
 - tc-get-selected-option

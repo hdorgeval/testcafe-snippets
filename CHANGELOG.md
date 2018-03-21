@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.21] - 2018-03-21
+### Added
+- tc-filter-hidden-elements
+
 ## [1.0.20] - 2018-03-20
 ### Added
 - tc-client-function-get-something-from-dom

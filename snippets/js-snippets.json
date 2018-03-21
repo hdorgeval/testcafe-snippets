@@ -430,5 +430,17 @@
           "const inputDetails = await getInputDetails(inputSelector);"
         ],
         "description": "get an object from the DOM with a Client Function"
+      },
+      "tc-filter-hidden-elements": {
+        "prefix": "tc-filter-hidden-elements",
+        "body": [
+          "// get all hidden inputs",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const inputs = Selector(\"input\");",
+          "const hiddenInputs =  inputs.filterHidden(); // v0.19.0",
+          "await t.expect(hiddenInputs.count).eql(1);",
+          "console.log(`first hiddenInput is '${await hiddenInputs.nth(0).id}'`);"
+        ],
+        "description": "Filter hidden elements (v0.19.0 and above)"
       }
 }
