@@ -446,5 +446,18 @@
           "console.log(`first hiddenInput is '${await hiddenInputs.nth(0).id}'`);"
         ],
         "description": "Filter hidden elements (v0.19.0 and above)"
+      },
+      "tc-filter-visible-elements": {
+        "prefix": "tc-filter-visible-elements",
+        "body": [
+          "// get all visible inputs",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const inputs = Selector(\"input\");",
+          "const visibleInputs = inputs.filterVisible(); // v0.19.0",
+          "await t.expect(visibleInputs.count).eql(11);",
+          "// tslint:disable-next-line:no-console",
+          "console.log(`first visibleInputs is '${await visibleInputs.nth(0).id}'`);"
+        ],
+        "description": "Filter visible elements (v0.19.0 and above)"
       }
 }
