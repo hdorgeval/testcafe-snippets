@@ -454,5 +454,33 @@
           "console.log(`first visibleInputs is '${await visibleInputs.nth(0).id}'`);"
         ],
         "description": "Filter visible elements (v0.19.0 and above)"
+      },
+      "tc-client-function-scroll-to-element": {
+        "prefix": "tc-client-function-scroll-to-element",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "// this sample will scroll to a label",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "// <label for=\"windows\">",
+          "//     <input type=\"radio\" name=\"os\" id=\"windows\" value=\"Windows\">",
+          "//     Windows",
+          "// </label>",
+          "const inputSelector = Selector('label[for=\"windows\"]');",
+          "const scrollToElement = ClientFunction((selector, offset /*{x: number, y: number}*/) => {",
+              "\treturn new Promise( (resolve) => {",
+                  "\t\tconst element = selector();",
+                  "\t\tif (element && element.scrollIntoView) {",
+                      "\t\t\telement.scrollIntoView();",
+                  "\t\t}",
+                  "\t\t// do a small shift up and left",
+                  "\t\tif (window && window.scrollBy && offset) {",
+                      "\t\t\twindow.scrollBy(offset.x, offset.y);",
+                  "\t\t}",
+                  "\t\tresolve();",
+              "\t});",
+          "});",
+          "await scrollToElement(inputSelector, {x: 20, y: -20});"
+        ],
+        "description": "Scroll to an element in the DOM"
       }
 }
