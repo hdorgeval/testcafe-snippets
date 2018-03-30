@@ -6,10 +6,10 @@ Use the `tc-` prefix to access snippets:
 
 - tc-angularjs-enable-debug
 - tc-angularjs-get-object-from-scope
+- tc-client-function-ajax-request-with-jquery
 - tc-client-function-get-something-from-dom
 - tc-client-function-scroll-to-element
 - tc-client-function-set-something-in-dom
-- tc-client-side-ajax-request
 - tc-copy-paste-text
 - tc-filter-hidden-elements
 - tc-filter-visible-elements

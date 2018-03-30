@@ -307,8 +307,8 @@
         ],
         "description": "Wait for a selector to appear"
       },
-      "tc-client-side-ajax-request": {
-        "prefix": "tc-client-side-ajax-request",
+      "tc-client-function-ajax-request-with-jquery": {
+        "prefix": "tc-client-function-ajax-request-with-jquery",
         "body": [
           "// Client-side ajax request",
           "// client-side function used for sending the ajax request",
