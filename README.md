@@ -8,6 +8,7 @@ Use the `tc-` prefix to access snippets:
 - tc-angularjs-get-object-from-scope
 - tc-client-function-ajax-request-with-jquery
 - tc-client-function-get-something-from-dom
+- tc-client-function-read-localstorage
 - tc-client-function-scroll-to-element
 - tc-client-function-set-something-in-dom
 - tc-copy-paste-text

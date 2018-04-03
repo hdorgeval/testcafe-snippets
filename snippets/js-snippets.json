@@ -482,5 +482,19 @@
           "await scrollToElement(inputSelector, {x: 20, y: -20});"
         ],
         "description": "Scroll to an element in the DOM"
+      },
+      "tc-client-function-read-localstorage": {
+        "prefix": "tc-client-function-read-localstorage",
+        "body": [
+            "// you need to import {ClientFunction} from \"testcafe\";",
+            "const getLocalStorageValueByKey = ClientFunction((key) => {",
+              "\treturn new Promise( (resolve) => {",
+                  "\t\tconst result = localStorage.getItem(key);",
+                  "\t\tresolve(result);",
+              "\t});",
+          "});",
+          "const value = await getLocalStorageValueByKey('mykey');"
+        ],
+        "description": "Read a value stored in localStorage"
       }
 }
