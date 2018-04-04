@@ -501,5 +501,23 @@
           "const value = await getLocalStorageValueByKey(\"mykey\");"
         ],
         "description": "Read a value stored in localStorage"
+      },
+      "tc-client-function-write-to-localstorage": {
+        "prefix": "tc-client-function-write-to-localstorage",
+        "body": [
+            "// you need to import {ClientFunction} from \"testcafe\";",
+            "const setLocalStorage = ClientFunction((key: string, value: string) => {",
+              "\treturn new Promise( (resolve, reject) => {",
+                  "\t\ttry {",
+                      "\t\t\tlocalStorage.setItem(key, value);",
+                      "\t\t\tresolve();",
+                  "\t\t} catch (error) {",
+                      "\t\t\treject(error);",
+                  "\t\t}",
+              "\t});",
+            "});",
+            "await setLocalStorage(\"mykey\", \"myValue\");"
+        ],
+        "description": "Write a value to the localStorage"
       }
 }

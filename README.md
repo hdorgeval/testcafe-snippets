@@ -11,6 +11,7 @@ Use the `tc-` prefix to access snippets:
 - tc-client-function-read-localstorage
 - tc-client-function-scroll-to-element
 - tc-client-function-set-something-in-dom
+- tc-client-function-write-to-localstorage
 - tc-copy-paste-text
 - tc-filter-hidden-elements
 - tc-filter-visible-elements
