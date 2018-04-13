@@ -27,6 +27,7 @@ Use the `tc-` prefix to access snippets:
 - tc-remove-text
 - tc-selector-with-options
 - tc-select-an-option-by-content
+- tc-select-an-option-by-content-with-regex
 - tc-select-an-option-by-exact-content
 - tc-select-a-radio-button-by-value
 - tc-select-first-option

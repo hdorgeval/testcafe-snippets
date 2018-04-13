@@ -41,6 +41,22 @@
         ],
         "description": "Select an option by content"
       },
+      "tc-select-an-option-by-content-with-regex": {
+        "prefix": "tc-select-an-option-by-content-with-regex",
+        "body": [
+          "await t // select an option by content with a Regex and press tab",
+          "\t.setTestSpeed(${1:0.7})",
+          "\t.hover(${2:select})",
+          "\t.expect(${2:select}.hasAttribute(\"disabled\")).notOk({timeout: ${4:5000}\\})",
+          "\t.click(${2:select})",
+          "\t.click(${2:select}",
+          "\t\t.find(\"option\")",
+          "\t\t.withText(new RegExp(`^${3:content}$`))",
+          "\t\t.nth(0))",
+          "\t.pressKey(\"tab\");"
+        ],
+        "description": "Select an option by content with a Regular Expression"
+      },
       "tc-select-an-option-by-exact-content": {
         "prefix": "tc-select-an-option-by-exact-content",
         "body": [
@@ -51,7 +67,7 @@
           "\t.click(${2:select})",
           "\t.click(${2:select}",
           "\t\t.find(\"option\")",
-          "\t\t.withText(new RegExp(`^${3:content}$`))",
+          "\t\t.withExactText(\"${3:content}\")",
           "\t\t.nth(0))",
           "\t.pressKey(\"tab\");"
         ],
