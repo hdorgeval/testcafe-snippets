@@ -577,5 +577,14 @@
                 "\t});"
         ],
         "description": "Use Role to authenticate only once in the running session."
+      },
+      "tc-client-function-get-browser-user-agent": {
+        "prefix": "tc-client-function-get-browser-user-agent",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "const getBrowserUserAgent = ClientFunction(() => navigator.userAgent.toString());",
+          "const userAgent = await getBrowserUserAgent();"
+        ],
+        "description": "Get Browser User Agent"
       }
 }

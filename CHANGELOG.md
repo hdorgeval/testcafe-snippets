@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.29] - 2018-04-23
+### Added
+- tc-client-function-get-browser-user-agent
+
 ## [1.0.28] - 2018-04-13
 ### Modified
 - tc-select-an-option-by-exact-content => tc-select-an-option-by-content-with-regex 

@@ -2,7 +2,7 @@
   "name": "testcafe-snippets",
   "displayName": "TestCafe Snippets",
   "description": "Code snippets for TestCafe",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "publisher": "hdorgeval",
   "icon": "images/icon.png",
   "engines": {
