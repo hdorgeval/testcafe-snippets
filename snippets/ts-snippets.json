@@ -586,5 +586,18 @@
           "const userAgent = await getBrowserUserAgent();"
         ],
         "description": "Get Browser User Agent"
+      },
+      "tc-client-function-get-window-state": {
+        "prefix": "tc-client-function-get-window-state",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "const getWindowState = ClientFunction(() => ({",
+            "\theight:      window.innerHeight,",
+            "\tisMaximized: window.outerWidth >= window.screen.availWidth && window.outerHeight >= window.screen.availHeight,",
+            "\twidth:       window.innerWidth,",
+          "}));",
+          "const windowState = await getWindowState();"
+        ],
+        "description": "Get Window State"
       }
 }
