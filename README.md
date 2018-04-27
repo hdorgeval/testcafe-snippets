@@ -10,6 +10,7 @@ Use the `tc-` prefix to access snippets:
 - tc-client-function-get-browser-user-agent
 - tc-client-function-get-something-from-dom
 - tc-client-function-get-window-state
+- tc-client-function-measure-execution-time
 - tc-client-function-read-localstorage
 - tc-client-function-scroll-to-element
 - tc-client-function-set-something-in-dom

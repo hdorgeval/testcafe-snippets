@@ -573,5 +573,20 @@
           "const windowState = await getWindowState();"
         ],
         "description": "Get Window State"
+      },
+      "tc-client-function-measure-execution-time": {
+        "prefix": "tc-client-function-measure-execution-time",
+        "body": [
+          "// you need to import {ClientFunction} from \"testcafe\";",
+          "const stopWatch = {",
+            "\telapsedTimeInMilliseconds: ClientFunction(() => Date.now() - window.startTime),",
+            "\tstart: ClientFunction(() => window.startTime = Date.now()),",
+          "};",
+          "await stopWatch.start();",
+          "// place here the code to instrument,",
+          "const elapsed = await stopWatch.elapsedTimeInMilliseconds();",
+          "await t.expect(elapsed).lt(1000);"
+        ],
+        "description": "Measure execution time"
       }
 }
