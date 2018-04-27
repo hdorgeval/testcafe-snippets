@@ -4,8 +4,8 @@
 
 Use the `tc-` prefix to access snippets:
 
-- tc-angularjs-enable-debug
-- tc-angularjs-get-object-from-scope
+- [tc-angularjs-enable-debug](#tc-angularjs-enable-debug)
+- [tc-angularjs-get-object-from-scope](#tc-angularjs-get-object-from-scope)
 - tc-client-function-ajax-request-with-jquery
 - tc-client-function-get-browser-user-agent
 - tc-client-function-get-something-from-dom
@@ -49,4 +49,32 @@ Use the `tc-` prefix to access snippets:
 * JavaScript (.js)
 * TypeScript (.ts)
 
+## Details
 
+### tc-angularjs-enable-debug
+
+```typescript
+// enable Angular debug info
+const reloadWithDebugInfo = ClientFunction(() => {
+    const angular = (window as any).angular;
+    if (angular) {
+        angular.reloadWithDebugInfo();
+    }
+});
+await reloadWithDebugInfo();
+```
+
+### tc-angularjs-get-object-from-scope
+
+```typescript
+// get object from angularjs scope
+const getCustomObject = ClientFunction( () => {
+    const $ = (window as any).jQuery;
+    const scope = $("selector").scope();
+    // inspect, in dev tools, the scope object todiscover available objects
+    // tslint:disable-next-line:no-console
+    console.log("scope: ", scope);
+    return scope.xxx;
+});
+const myObject = await getCustomObject();
+```
