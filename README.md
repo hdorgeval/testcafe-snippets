@@ -6,7 +6,7 @@ Use the `tc-` prefix to access snippets:
 
 - [tc-angularjs-enable-debug](#tc-angularjs-enable-debug)
 - [tc-angularjs-get-object-from-scope](#tc-angularjs-get-object-from-scope)
-- tc-client-function-ajax-request-with-jquery
+- [tc-client-function-ajax-request-with-jquery](#tc-client-function-ajax-request-with-jquery)
 - tc-client-function-get-browser-user-agent
 - tc-client-function-get-something-from-dom
 - tc-client-function-get-window-state
@@ -77,4 +77,44 @@ const getCustomObject = ClientFunction( () => {
     return scope.xxx;
 });
 const myObject = await getCustomObject();
+```
+
+### tc-client-function-ajax-request-with-jquery
+
+```typescript
+// Client-side ajax request
+// client-side function used for sending the ajax request
+const send = ClientFunction( (req: any) => {
+    return new Promise( (resolve) => {
+        const json: string = JSON.stringify(req);
+        const $ = (window as any).jQuery;
+        $.ajax({
+            contentType: "application/json; charset=utf-8",
+            data: json,
+            dataType: "json",
+            type: "POST",
+            url: "https://reqres.in/api/users",
+        })
+        .always( (httpResponse: XMLHttpRequest) => {
+            if (httpResponse && httpResponse.getAllResponseHeaders ===undefined) {
+                resolve(httpResponse);
+                return;
+            }
+            resolve({
+                responseHeaders: httpResponse.getAllResponseHeaders(),
+                responseText: httpResponse.responseText,
+                status: httpResponse.status,
+                statusText: httpResponse.statusText,
+            });
+        });
+    });
+});
+// request object that will be posted to the backend server
+const request = {
+    firstName: "john",
+    lastName: "Doe",
+    requestTime: Date(),
+};
+// send request and get response
+const response: XMLHttpRequest | any = await send(request);
 ```
