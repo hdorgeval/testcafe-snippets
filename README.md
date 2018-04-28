@@ -7,8 +7,8 @@ Use the `tc-` prefix to access snippets:
 - [tc-angularjs-enable-debug](#tc-angularjs-enable-debug)
 - [tc-angularjs-get-object-from-scope](#tc-angularjs-get-object-from-scope)
 - [tc-client-function-ajax-request-with-jquery](#tc-client-function-ajax-request-with-jquery)
-- tc-client-function-get-browser-user-agent
-- tc-client-function-get-something-from-dom
+- [tc-client-function-get-browser-user-agent](#tc-client-function-get-browser-user-agent)
+- [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
 - tc-client-function-get-window-state
 - tc-client-function-measure-execution-time
 - tc-client-function-read-localstorage
@@ -117,4 +117,42 @@ const request = {
 };
 // send request and get response
 const response: XMLHttpRequest | any = await send(request);
+```
+
+### tc-client-function-get-browser-user-agent
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+const getBrowserUserAgent = ClientFunction(() => navigator.userAgent.toString());
+const userAgent = await getBrowserUserAgent();
+```
+
+### tc-client-function-get-something-from-dom
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+// this sample will get the details of a selected input
+// see http://devexpress.github.io/testcafe/example/
+// <label for="windows">
+//     <input type="radio" name="os" id="windows" value="Windows">
+//     Windows
+// </label>
+const inputSelector = Selector('label[for="windows"] input');
+const getInputDetails = ClientFunction((selector: Selector) => {
+    return new Promise( (resolve) => {
+        const element: any = selector();
+        // check, in developper tools, what are the available properties in element
+        // tslint:disable-next-line:no-console
+        console.log("element:", element);
+        resolve({
+            checked: element.checked,
+            disabled: element.disabled,
+            id: element.id,
+            name: element.name,
+            type: element.type,
+            value: element.value,
+        });
+    });
+});
+const inputDetails = await getInputDetails(inputSelector);
 ```
