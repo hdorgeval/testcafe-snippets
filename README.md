@@ -9,8 +9,8 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-ajax-request-with-jquery](#tc-client-function-ajax-request-with-jquery)
 - [tc-client-function-get-browser-user-agent](#tc-client-function-get-browser-user-agent)
 - [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
-- tc-client-function-get-window-state
-- tc-client-function-measure-execution-time
+- [tc-client-function-get-window-state](#tc-client-function-get-window-state)
+- [tc-client-function-measure-execution-time](#tc-client-function-measure-execution-time)
 - tc-client-function-read-localstorage
 - tc-client-function-scroll-to-element
 - tc-client-function-set-something-in-dom
@@ -155,4 +155,30 @@ const getInputDetails = ClientFunction((selector: Selector) => {
     });
 });
 const inputDetails = await getInputDetails(inputSelector);
+```
+
+### tc-client-function-get-window-state
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+const getWindowState = ClientFunction(() => ({
+    height:      window.innerHeight,
+    isMaximized: window.outerWidth >= window.screen.availWidth && window.outerHeight >=window.screen.availHeight,
+    width:       window.innerWidth,
+}));
+const windowState = await getWindowState();
+```
+
+### tc-client-function-measure-execution-time
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+const stopWatch = {
+    elapsedTimeInMilliseconds: ClientFunction(() => Date.now() - (window as any).startTime),
+    start: ClientFunction(() => (window as any).startTime = Date.now()),
+};
+await stopWatch.start();
+// place here the code to instrument,
+const elapsed = await stopWatch.elapsedTimeInMilliseconds();
+await t.expect(elapsed).lt(1000);
 ```
