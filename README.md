@@ -15,7 +15,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-scroll-to-element](#tc-client-function-scroll-to-element)
 - [tc-client-function-set-something-in-dom](#tc-client-function-set-something-in-dom)
 - [tc-client-function-write-to-localstorage](#tc-client-function-write-to-localstorage)
-- tc-copy-paste-text
+- [tc-copy-paste-text](#tc-copy-paste-text)
 - tc-filter-hidden-elements
 - tc-filter-visible-elements
 - tc-fixture-with-start-page
@@ -259,4 +259,18 @@ const setLabel = ClientFunction((selector: Selector, value: string) => {
     element.firstElementChild.nextSibling.replaceWith(value);
 });
 await setLabel(mySelector, "Windows 10");
+```
+
+### tc-copy-paste-text
+
+```typescript
+// see http://devexpress.github.io/testcafe/example/
+const input = Selector('input#developer-name[type="text"]');
+await t // copy paste a text in an input box and press tab
+    .setTestSpeed(0.7)
+    .hover(input)
+    .expect(input.hasAttribute("disabled")).notOk({timeout: 5000})
+    .click(input)
+    .typeText(input, "john doe", {replace: true, paste: true})
+    .pressKey("tab");
 ```
