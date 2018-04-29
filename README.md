@@ -17,7 +17,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-write-to-localstorage](#tc-client-function-write-to-localstorage)
 - [tc-copy-paste-text](#tc-copy-paste-text)
 - [tc-filter-hidden-elements](#tc-filter-hidden-elements)
-- tc-filter-visible-elements
+- [tc-filter-visible-elements](#tc-filter-visible-elements)
 - tc-fixture-with-start-page
 - tc-fixture-with-start-page-and-hooks
 - tc-get-selected-option
@@ -284,4 +284,15 @@ const inputs = Selector("input");
 const hiddenInputs =  inputs.filterHidden(); // v0.19.0
 await t.expect(hiddenInputs.count).eql(1);
 console.log(`first hiddenInput is '${await hiddenInputs.nth(0).id}'`);
+```
+
+### tc-filter-visible-elements
+
+```typescript
+// get all visible inputs
+// see http://devexpress.github.io/testcafe/example/
+const inputs = Selector("input");
+const visibleInputs = inputs.filterVisible(); // v0.19.0
+await t.expect(visibleInputs.count).eql(11);
+console.log(`first visibleInputs is '${await visibleInputs.nth(0).id}'`);
 ```
