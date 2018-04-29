@@ -11,10 +11,10 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
 - [tc-client-function-get-window-state](#tc-client-function-get-window-state)
 - [tc-client-function-measure-execution-time](#tc-client-function-measure-execution-time)
-- tc-client-function-read-localstorage
-- tc-client-function-scroll-to-element
-- tc-client-function-set-something-in-dom
-- tc-client-function-write-to-localstorage
+- [tc-client-function-read-localstorage](#tc-client-function-read-localstorage)
+- [tc-client-function-scroll-to-element](#tc-client-function-scroll-to-element)
+- [tc-client-function-set-something-in-dom](#tc-client-function-set-something-in-dom)
+- [tc-client-function-write-to-localstorage](#tc-client-function-write-to-localstorage)
 - tc-copy-paste-text
 - tc-filter-hidden-elements
 - tc-filter-visible-elements
@@ -181,4 +181,82 @@ await stopWatch.start();
 // place here the code to instrument,
 const elapsed = await stopWatch.elapsedTimeInMilliseconds();
 await t.expect(elapsed).lt(1000);
+```
+
+### tc-client-function-read-localstorage
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+const getLocalStorageValueByKey = ClientFunction((key: string) => {
+    return new Promise( (resolve) => {
+        const result = localStorage.getItem(key);
+        resolve(result);
+    });
+});
+const value = await getLocalStorageValueByKey("mykey");
+```
+
+### tc-client-function-write-to-localstorage
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+const setLocalStorage = ClientFunction((key: string, value: string) => {
+    return new Promise( (resolve, reject) => {
+        try {
+            localStorage.setItem(key, value);
+            resolve();
+        } catch (error) {
+            reject(error);
+        }
+    });
+});
+await setLocalStorage("mykey", "myValue");
+```
+
+### tc-client-function-scroll-to-element
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+// this sample will scroll to a label
+// see http://devexpress.github.io/testcafe/example/
+// <label for="windows">
+//     <input type="radio" name="os" id="windows" value="Windows">
+//     Windows
+// </label>
+const inputSelector = Selector('label[for="windows"]');
+const scrollToElement = ClientFunction((selector: Selector, offset: {x: number, y: number}) => {
+    return new Promise( (resolve) => {
+        const element: any = selector();
+        if (element && element.scrollIntoView) {
+            element.scrollIntoView();
+        }
+        // do a small shift up and left
+        if (window && window.scrollBy && offset) {
+            window.scrollBy(offset.x, offset.y);
+        }
+        resolve();
+    });
+});
+await scrollToElement(inputSelector, {x: 20, y: -20});
+```
+
+### tc-client-function-set-something-in-dom
+
+```typescript
+// you need to import {ClientFunction} from "testcafe";
+// this sample will replace a checkbox label
+// see http://devexpress.github.io/testcafe/example/
+// <label for="windows">
+//     <input type="radio" name="os" id="windows" value="Windows">
+//     Windows
+// </label>
+const mySelector = Selector('label[for="windows"]');
+const setLabel = ClientFunction((selector: Selector, value: string) => {
+    const element: any = selector();
+    // check, in developper tools, what are the available properties in element
+    // tslint:disable-next-line:no-console
+    console.log("element:", element);
+    element.firstElementChild.nextSibling.replaceWith(value);
+});
+await setLabel(mySelector, "Windows 10");
 ```
