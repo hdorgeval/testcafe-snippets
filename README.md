@@ -18,8 +18,8 @@ Use the `tc-` prefix to access snippets:
 - [tc-copy-paste-text](#tc-copy-paste-text)
 - [tc-filter-hidden-elements](#tc-filter-hidden-elements)
 - [tc-filter-visible-elements](#tc-filter-visible-elements)
-- tc-fixture-with-start-page
-- tc-fixture-with-start-page-and-hooks
+- [tc-fixture-with-start-page](#tc-fixture-with-start-page)
+- [tc-fixture-with-start-page-and-hooks](#tc-fixture-with-start-page-and-hooks)
 - tc-get-selected-option
 - tc-import
 - tc-iterate-over-selected-checkboxes
@@ -295,4 +295,28 @@ const inputs = Selector("input");
 const visibleInputs = inputs.filterVisible(); // v0.19.0
 await t.expect(visibleInputs.count).eql(11);
 console.log(`first visibleInputs is '${await visibleInputs.nth(0).id}'`);
+```
+
+### tc-fixture-with-start-page
+
+```typescript
+fixture("My Fixture")
+    .page("http://myurl");
+
+```
+
+### tc-fixture-with-start-page-and-hooks
+
+```typescript
+fixture("My Fixture")
+    .page("http://myurl")
+    .before(async (ctx) => {
+        // inject in the fixture context any object you want to share beetween tests
+        ctx.config = config;
+    })
+    .beforeEach(async (t) => {
+        // inject in the test context any input data needed to run the test
+        t.ctx.inputData = inputData;
+        // put here all actions that are common to all tests
+});
 ```
