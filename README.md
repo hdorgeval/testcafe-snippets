@@ -20,7 +20,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-filter-visible-elements](#tc-filter-visible-elements)
 - [tc-fixture-with-start-page](#tc-fixture-with-start-page)
 - [tc-fixture-with-start-page-and-hooks](#tc-fixture-with-start-page-and-hooks)
-- tc-get-selected-option
+- [tc-get-selected-option](#tc-get-selected-option)
 - tc-import
 - tc-iterate-over-selected-checkboxes
 - tc-maximize-window
@@ -319,4 +319,23 @@ fixture("My Fixture")
         t.ctx.inputData = inputData;
         // put here all actions that are common to all tests
 });
+```
+
+### tc-get-selected-option
+
+```typescript
+// get the selected option
+// see http://devexpress.github.io/testcafe/example/
+const select = Selector("select#preferred-interface");
+const selectedOption = select
+        .find("option")
+            .filter((node) => {
+                const option = node as HTMLOptionElement;
+                if (option && option.selected) {
+                    return true;
+                }
+                return false;
+            })
+            .nth(0);
+const selectedOptionContent = await  selectedOption.textContent;
 ```
