@@ -21,8 +21,8 @@ Use the `tc-` prefix to access snippets:
 - [tc-fixture-with-start-page](#tc-fixture-with-start-page)
 - [tc-fixture-with-start-page-and-hooks](#tc-fixture-with-start-page-and-hooks)
 - [tc-get-selected-option](#tc-get-selected-option)
-- tc-import
-- tc-iterate-over-selected-checkboxes
+- [tc-import](#tc-import)
+- [tc-iterate-over-selected-checkboxes](#tc-iterate-over-selected-checkboxes)
 - tc-maximize-window
 - tc-navigate-to-url
 - tc-pause-test-for-client-side-debugging
@@ -338,4 +338,34 @@ const selectedOption = select
             })
             .nth(0);
 const selectedOptionContent = await  selectedOption.textContent;
+```
+
+### tc-import
+
+```typescript
+import "testcafe";
+import {ClientFunction, Selector} from "testcafe";
+```
+
+### tc-iterate-over-selected-checkboxes
+
+```typescript
+// iterate over selected checkboxes
+// see http://devexpress.github.io/testcafe/example/
+const selectedCheckboxes = Selector('input[type="checkbox"]')
+    // select all checboxes whose name value is in a set of predefined values
+    .withAttribute("name", /custom-name|remote|re-using|background|CI|analysis/)
+        .filter((node) => {
+            const checkbox = node as HTMLInputElement;
+            if (checkbox && checkbox.checked) {
+                return true;
+            }
+            return false;
+        });
+const checkedCount = await selectedCheckboxes.count;
+const checkedIds = [];
+for (let i = 0; i < checkedCount; i++) {
+    checkedIds.push(await selectedCheckboxes.nth(i).id);
+}
+// now you can make your business check from the checkedIds array
 ```
