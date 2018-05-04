@@ -23,7 +23,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-get-selected-option](#tc-get-selected-option)
 - [tc-import](#tc-import)
 - [tc-iterate-over-selected-checkboxes](#tc-iterate-over-selected-checkboxes)
-- tc-maximize-window
+- [tc-maximize-window](#tc-maximize-window)
 - tc-navigate-to-url
 - tc-pause-test-for-client-side-debugging
 - tc-reload-browser
@@ -368,4 +368,11 @@ for (let i = 0; i < checkedCount; i++) {
     checkedIds.push(await selectedCheckboxes.nth(i).id);
 }
 // now you can make your business check from the checkedIds array
+```
+
+### tc-maximize-window
+
+```js
+await t // set the window size to it's max size
+        .maximizeWindow();
 ```
