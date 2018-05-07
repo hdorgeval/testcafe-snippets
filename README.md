@@ -24,7 +24,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-import](#tc-import)
 - [tc-iterate-over-selected-checkboxes](#tc-iterate-over-selected-checkboxes)
 - [tc-maximize-window](#tc-maximize-window)
-- tc-navigate-to-url
+- [tc-navigate-to-url](#tc-navigate-to-url)
 - tc-pause-test-for-client-side-debugging
 - tc-reload-browser
 - tc-remove-text
@@ -374,5 +374,12 @@ for (let i = 0; i < checkedCount; i++) {
 
 ```js
 await t // set the window size to it's max size
-        .maximizeWindow();
+    .maximizeWindow();
+```
+
+### tc-navigate-to-url
+
+```js
+await t // navigate to url
+    .navigateTo("url");
 ```
