@@ -25,7 +25,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-iterate-over-selected-checkboxes](#tc-iterate-over-selected-checkboxes)
 - [tc-maximize-window](#tc-maximize-window)
 - [tc-navigate-to-url](#tc-navigate-to-url)
-- tc-pause-test-for-client-side-debugging
+- [tc-pause-test-for-client-side-debugging](#tc-pause-test-for-client-side-debugging)
 - tc-reload-browser
 - tc-remove-text
 - tc-selector-with-options
@@ -382,4 +382,10 @@ await t // set the window size to it's max size
 ```js
 await t // navigate to url
     .navigateTo("url");
+```
+
+### tc-pause-test-for-client-side-debugging
+
+```js
+await t.debug();
 ```
