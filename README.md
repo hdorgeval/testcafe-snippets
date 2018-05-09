@@ -26,7 +26,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-maximize-window](#tc-maximize-window)
 - [tc-navigate-to-url](#tc-navigate-to-url)
 - [tc-pause-test-for-client-side-debugging](#tc-pause-test-for-client-side-debugging)
-- tc-reload-browser
+- [tc-reload-browser](#tc-reload-browser)
 - tc-remove-text
 - tc-selector-with-options
 - tc-select-an-option-by-content
@@ -388,4 +388,11 @@ await t // navigate to url
 
 ```js
 await t.debug();
+```
+
+### tc-reload-browser
+```js
+// you need to import {ClientFunction} from "testcafe";
+const reloadBrowser = ClientFunction(() => window.location.reload(true));
+await reloadBrowser();
 ```
