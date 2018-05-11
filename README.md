@@ -27,7 +27,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-navigate-to-url](#tc-navigate-to-url)
 - [tc-pause-test-for-client-side-debugging](#tc-pause-test-for-client-side-debugging)
 - [tc-reload-browser](#tc-reload-browser)
-- tc-remove-text
+- [tc-remove-text](#tc-remove-text)
 - tc-selector-with-options
 - tc-select-an-option-by-content
 - tc-select-an-option-by-content-with-regex
@@ -391,8 +391,23 @@ await t.debug();
 ```
 
 ### tc-reload-browser
+
 ```js
 // you need to import {ClientFunction} from "testcafe";
 const reloadBrowser = ClientFunction(() => window.location.reload(true));
 await reloadBrowser();
+```
+
+### tc-remove-text
+
+```js
+// see http://devexpress.github.io/testcafe/example/
+const input = Selector('input#developer-name[type="text"]');
+await t // remove the text present in an input box and press tab
+    .setTestSpeed(0.7)
+    .hover(input)
+    .expect(input.hasAttribute("disabled")).notOk({timeout: 5000})
+    .click(input)
+    .pressKey("ctrl+a delete")
+    .pressKey("tab");
 ```
