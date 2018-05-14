@@ -28,7 +28,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-pause-test-for-client-side-debugging](#tc-pause-test-for-client-side-debugging)
 - [tc-reload-browser](#tc-reload-browser)
 - [tc-remove-text](#tc-remove-text)
-- tc-selector-with-options
+- [tc-selector-with-options](#tc-selector-with-options)
 - tc-select-an-option-by-content
 - tc-select-an-option-by-content-with-regex
 - tc-select-an-option-by-exact-content
@@ -410,4 +410,13 @@ await t // remove the text present in an input box and press tab
     .click(input)
     .pressKey("ctrl+a delete")
     .pressKey("tab");
+```
+
+### tc-selector-with-options
+
+```js
+// see http://devexpress.github.io/testcafe/example/
+const mySelector = Selector('input#developer-name')
+    .with({timeout: 5000, visibilityCheck: true})
+    .nth(0);
 ```
