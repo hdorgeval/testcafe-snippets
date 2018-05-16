@@ -33,6 +33,7 @@ Use the `tc-` prefix to access snippets:
 - tc-select-an-option-by-content-with-regex
 - tc-select-an-option-by-exact-content
 - tc-select-a-radio-button-by-value
+- [tc-select-first-non-empty-option](#tc-select-first-non-empty-option)
 - tc-select-first-option
 - tc-select-last-option
 - tc-set-window-size-to-custom-width-and-height
@@ -436,4 +437,25 @@ await t // select an option by its content and press tab
         .withText("Commmand Line")
         .nth(0))
     .pressKey("tab");
+```
+
+### tc-select-first-non-empty-option
+
+```typescript
+// select first non-empty option
+const selector = Selector("select").nth(0);
+const firstNonEmptyOption = selector
+    .find("option")
+        .filter((node) => {
+            const option = node as HTMLOptionElement;
+            if (option && option.innerText && option.innerText.trim() !== "") {
+                return true;
+            }
+            return false;
+        })
+        .nth(0);
+await t
+    .hover(selector)
+    .click(selector)
+    .click(firstNonEmptyOption);
 ```

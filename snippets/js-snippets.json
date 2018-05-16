@@ -588,5 +588,26 @@
           "await t.expect(elapsed).lt(1000);"
         ],
         "description": "Measure execution time"
+      },
+      "tc-select-first-non-empty-option": {
+        "prefix": "tc-select-first-non-empty-option",
+        "body": [
+          "// select first non-empty option",
+          "const selector = Selector('select').nth(0);",
+          "const firstNonEmptyOption = selector",
+              "\t.find('option')",
+                  "\t\t.filter((node) => {",
+                      "\t\t\tif (node && node.innerText && node.innerText.trim() !== '') {",
+                          "\t\t\t\treturn true;",
+                      "\t\t\t}",
+                      "\t\t\treturn false;",
+                  "\t\t})",
+                  "\t\t.nth(0);",
+          "await t",
+              "\t.hover(selector)",
+              "\t.click(selector)",
+              "\t.click(firstNonEmptyOption);"
+        ],
+        "description": "Select first non-empty option"
       }
 }
