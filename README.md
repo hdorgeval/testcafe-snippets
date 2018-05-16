@@ -29,7 +29,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-reload-browser](#tc-reload-browser)
 - [tc-remove-text](#tc-remove-text)
 - [tc-selector-with-options](#tc-selector-with-options)
-- tc-select-an-option-by-content
+- [tc-select-an-option-by-content](#tc-select-an-option-by-content)
 - tc-select-an-option-by-content-with-regex
 - tc-select-an-option-by-exact-content
 - tc-select-a-radio-button-by-value
@@ -419,4 +419,21 @@ await t // remove the text present in an input box and press tab
 const mySelector = Selector('input#developer-name')
     .with({timeout: 5000, visibilityCheck: true})
     .nth(0);
+```
+
+### tc-select-an-option-by-content
+
+```js
+// see http://devexpress.github.io/testcafe/example/
+const select = Selector("select#preferred-interface");
+await t // select an option by its content and press tab
+    .setTestSpeed(0.7)
+    .hover(select)
+    .expect(select.hasAttribute("disabled")).notOk({timeout: 5000})
+    .click(select)
+    .click(select
+        .find("option")
+        .withText("Commmand Line")
+        .nth(0))
+    .pressKey("tab");
 ```
