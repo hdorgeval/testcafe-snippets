@@ -31,7 +31,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-selector-with-options](#tc-selector-with-options)
 - [tc-select-an-option-by-content](#tc-select-an-option-by-content)
 - [tc-select-an-option-by-content-with-regex](#tc-select-an-option-by-content-with-regex)
-- tc-select-an-option-by-exact-content
+- [tc-select-an-option-by-exact-content](#tc-select-an-option-by-exact-content)
 - tc-select-a-radio-button-by-value
 - [tc-select-first-non-empty-option](#tc-select-first-non-empty-option)
 - tc-select-first-option
@@ -454,6 +454,22 @@ await t // select an option by content with a Regex and press tab
         .withText(new RegExp(`^.*API$`))
         .nth(0))
     .pressKey("tab");
+```
+
+### tc-select-an-option-by-exact-content
+```js
+// see http://devexpress.github.io/testcafe/example/
+    const select = Selector("select#preferred-interface");
+    await t // select an option by its exact content and press tab
+        .setTestSpeed(0.7)
+        .hover(select)
+        .expect(select.hasAttribute("disabled")).notOk({timeout: 5000})
+        .click(select)
+        .click(select
+            .find("option")
+            .withExactText("JavaScript API")
+            .nth(0))
+        .pressKey("tab");
 ```
 
 ### tc-select-first-non-empty-option
