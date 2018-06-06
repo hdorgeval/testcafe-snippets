@@ -32,7 +32,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-select-an-option-by-content](#tc-select-an-option-by-content)
 - [tc-select-an-option-by-content-with-regex](#tc-select-an-option-by-content-with-regex)
 - [tc-select-an-option-by-exact-content](#tc-select-an-option-by-exact-content)
-- tc-select-a-radio-button-by-value
+- [tc-select-a-radio-button-by-value](#tc-select-a-radio-button-by-value)
 - [tc-select-first-non-empty-option](#tc-select-first-non-empty-option)
 - tc-select-first-option
 - tc-select-last-option
@@ -470,6 +470,29 @@ await t // select an option by content with a Regex and press tab
             .withExactText("JavaScript API")
             .nth(0))
         .pressKey("tab");
+```
+
+### tc-select-a-radio-button-by-value
+
+```typescript
+// see http://devexpress.github.io/testcafe/example/
+// select a radio button by it's input value
+const radioButtonValue = "Linux"; // the value to search
+const radioButton = Selector('input[type="radio"]')
+    .withAttribute("name", "os") // select all radio buttons within the group named 'os'
+        .filter((node) => {
+            const button = node as HTMLInputElement;
+            if (button && button.value === radioButtonValue) {
+                return true;
+            }
+            return false;
+        }, {radioButtonValue})
+        .nth(0);
+await t
+    .hover(radioButton)
+    .expect(radioButton.hasAttribute("disabled")).notOk({timeout: 5000})
+    .click(radioButton)
+    .pressKey("tab");
 ```
 
 ### tc-select-first-non-empty-option
