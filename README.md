@@ -35,7 +35,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-select-a-radio-button-by-value](#tc-select-a-radio-button-by-value)
 - [tc-select-first-non-empty-option](#tc-select-first-non-empty-option)
 - [tc-select-first-option](#tc-select-first-option)
-- tc-select-last-option
+- [tc-select-last-option](#tc-select-last-option)
 - tc-set-window-size-to-custom-width-and-height
 - tc-set-window-size-to-fit-device
 - tc-take-screenshot-of-an-element-in-dom
@@ -517,6 +517,7 @@ await t
 ```
 
 ### tc-select-first-option
+
 ```typescript
 // see http://devexpress.github.io/testcafe/example/
 const select = Selector("select#preferred-interface");
@@ -528,5 +529,21 @@ await t // select the first option and press tab
     .click(select
         .find("option")
         .nth(0))
+    .pressKey("tab");
+```
+
+### tc-select-last-option
+
+```typescript
+// see http://devexpress.github.io/testcafe/example/
+const select = Selector("select#preferred-interface");
+await t // select the last option and press tab
+    .setTestSpeed(0.7)
+    .hover(select)
+    .expect(select.hasAttribute("disabled")).notOk({timeout: 5000})
+    .click(select)
+    .click(select
+        .find("option")
+        .nth(-1))
     .pressKey("tab");
 ```
