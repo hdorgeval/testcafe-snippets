@@ -36,7 +36,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-select-first-non-empty-option](#tc-select-first-non-empty-option)
 - [tc-select-first-option](#tc-select-first-option)
 - [tc-select-last-option](#tc-select-last-option)
-- tc-set-window-size-to-custom-width-and-height
+- [tc-set-window-size-to-custom-width-and-height](#tc-set-window-size-to-custom-width-and-height)
 - tc-set-window-size-to-fit-device
 - tc-take-screenshot-of-an-element-in-dom
 - tc-test
@@ -546,4 +546,11 @@ await t // select the last option and press tab
         .find("option")
         .nth(-1))
     .pressKey("tab");
+```
+
+### tc-set-window-size-to-custom-width-and-height
+
+```js
+await t // set the window size
+    .resizeWindow(1024, 600);
 ```
