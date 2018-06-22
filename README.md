@@ -37,7 +37,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-select-first-option](#tc-select-first-option)
 - [tc-select-last-option](#tc-select-last-option)
 - [tc-set-window-size-to-custom-width-and-height](#tc-set-window-size-to-custom-width-and-height)
-- tc-set-window-size-to-fit-device
+- [tc-set-window-size-to-fit-device](#tc-set-window-size-to-fit-device)
 - tc-take-screenshot-of-an-element-in-dom
 - tc-test
 - tc-test-with-hooks
@@ -553,4 +553,11 @@ await t // select the last option and press tab
 ```js
 await t // set the window size
     .resizeWindow(1024, 600);
+```
+
+### tc-set-window-size-to-fit-device
+
+```js
+await t // set the window size to fit specific device (see: http://viewportsizes.com/)
+    .resizeWindowToFitDevice("Galaxy Nexus", {portraitOrientation: true});
 ```
