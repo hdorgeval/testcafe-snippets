@@ -1,4 +1,4 @@
-# Code snippets for TestCafe ([say goodbye to flackyness](flacky-or-not-flacky.md))
+# Code snippets for TestCafe ([say goodbye to flackyness](say-goodbye-to-flakyness.md))
 
 [This Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=hdorgeval.testcafe-snippets) provides code snippets for TestCafe.
 
