@@ -39,7 +39,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-set-window-size-to-custom-width-and-height](#tc-set-window-size-to-custom-width-and-height)
 - [tc-set-window-size-to-fit-device](#tc-set-window-size-to-fit-device)
 - [tc-take-screenshot-of-an-element-in-dom](#tc-take-screenshot-of-an-element-in-dom)
-- tc-test
+- [tc-test](#tc-test)
 - tc-test-with-hooks
 - tc-type-text
 - tc-wait-for-a-selector-to-appear
@@ -579,4 +579,12 @@ await t
         includeMargins: true,
         includePaddings: true,
     });
+```
+
+### tc-test
+
+```js
+test("My Test", async (t) => {
+    
+});
 ```
