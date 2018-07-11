@@ -40,7 +40,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-set-window-size-to-fit-device](#tc-set-window-size-to-fit-device)
 - [tc-take-screenshot-of-an-element-in-dom](#tc-take-screenshot-of-an-element-in-dom)
 - [tc-test](#tc-test)
-- tc-test-with-hooks
+- [tc-test-with-hooks](#tc-test-with-hooks)
 - tc-type-text
 - tc-wait-for-a-selector-to-appear
 - tc-wait-for-a-selector-to-disappear
@@ -587,4 +587,19 @@ await t
 test("My Test", async (t) => {
     
 });
+```
+
+### tc-test-with-hooks
+
+```js
+test("My Test", async (t) => {
+    // test code ommited for brevity
+    })
+    .before(async (t) => {
+        // inject in the test context any input data needed to run this specific test
+        t.ctx.inputData = getSomeData();
+    })
+    .after(async (t) => {
+        // test finalization code
+    });
 ```
