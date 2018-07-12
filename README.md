@@ -41,7 +41,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-take-screenshot-of-an-element-in-dom](#tc-take-screenshot-of-an-element-in-dom)
 - [tc-test](#tc-test)
 - [tc-test-with-hooks](#tc-test-with-hooks)
-- tc-type-text
+- [tc-type-text](#tc-type-text)
 - tc-wait-for-a-selector-to-appear
 - tc-wait-for-a-selector-to-disappear
 
@@ -602,4 +602,18 @@ test("My Test", async (t) => {
     .after(async (t) => {
         // test finalization code
     });
+```
+
+### tc-type-text
+
+```js
+// see http://devexpress.github.io/testcafe/example/
+const input = Selector("input#developer-name");
+await t // type a text in an input box and press tab
+    .setTestSpeed(0.7)
+    .hover(input)
+    .expect(input.hasAttribute("disabled")).notOk({timeout: 5000})
+    .click(input)
+    .typeText(input, "john doe", {replace: true})
+    .pressKey("tab");
 ```

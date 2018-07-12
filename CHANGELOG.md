@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.53] - 2018-07-12
+### Modified
+- README.md
+
 ## [1.0.52] - 2018-07-11
 ### Modified
 - README.md
