@@ -42,7 +42,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-test](#tc-test)
 - [tc-test-with-hooks](#tc-test-with-hooks)
 - [tc-type-text](#tc-type-text)
-- tc-wait-for-a-selector-to-appear
+- [tc-wait-for-a-selector-to-appear](#tc-wait-for-a-selector-to-appear)
 - tc-wait-for-a-selector-to-disappear
 
 ## Supported languages (file extensions)
@@ -616,4 +616,15 @@ await t // type a text in an input box and press tab
     .click(input)
     .typeText(input, "john doe", {replace: true})
     .pressKey("tab");
+```
+
+### tc-wait-for-a-selector-to-appear
+
+```js
+// wait for a selector to appear
+const selector = Selector("div.popup")
+    .with({visibilityCheck: true})
+    .nth(0);
+await t
+    .expect(selector.exists).ok({timeout: 5000});
 ```
