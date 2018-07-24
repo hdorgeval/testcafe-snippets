@@ -43,7 +43,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-test-with-hooks](#tc-test-with-hooks)
 - [tc-type-text](#tc-type-text)
 - [tc-wait-for-a-selector-to-appear](#tc-wait-for-a-selector-to-appear)
-- tc-wait-for-a-selector-to-disappear
+- [tc-wait-for-a-selector-to-disappear](#tc-wait-for-a-selector-to-disappear)
 
 ## Supported languages (file extensions)
 
@@ -627,4 +627,14 @@ const selector = Selector("div.popup")
     .nth(0);
 await t
     .expect(selector.exists).ok({timeout: 5000});
+```
+
+### tc-wait-for-a-selector-to-disappear
+
+```js
+/ wait for a selector to disappear
+const spinner = Selector("div.loading");
+await t
+    .expect(spinner.with({visibilityCheck: true}).exists).notOk({timeout: 5000});
+
 ```
