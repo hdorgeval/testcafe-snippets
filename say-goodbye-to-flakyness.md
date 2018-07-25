@@ -78,4 +78,18 @@ Your test should always simulate the real behavior of a real user.
 Any time you will take a technical shortcut to make your code more brilliant you will introduce flakyness.
 
 
+## Asserting a property selector
+
+Look at this code:
+
+```js
+await t.expect(selector.exists).ok(); // check that selector exists
+await t.expect(selector.value).eql('some value'); // check that selector has an expected value
+await t.expect(selector.count).eql(N); // check that selector is a collection of N items
+```
+
+All those assertions are flaky. 
+They will work on your dev machine, but there is a good chance they will fail at one time or another when executed in a container or on a remote agent.
+
+
 [This is a work in progress ... obviously this page is not finished]

@@ -609,5 +609,17 @@
               "\t.click(firstNonEmptyOption);"
         ],
         "description": "Select first non-empty option"
+      },
+      "tc-assert-count": {
+        "prefix": "tc-assert-count",
+        "body": [
+          "// assert for a count value",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const ${1:selector} = Selector('${2:select#preferred-interface option}')",
+          "\t.with({visibilityCheck: true});",
+          "await t",
+          "\t.expect(${1:selector}.count).eql(${3:3}, {timeout: ${4:5000}\\});"
+        ],
+        "description": "Assert for Selector.count value"
       }
 }

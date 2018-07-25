@@ -6,6 +6,7 @@ Use the `tc-` prefix to access snippets:
 
 - [tc-angularjs-enable-debug](#tc-angularjs-enable-debug)
 - [tc-angularjs-get-object-from-scope](#tc-angularjs-get-object-from-scope)
+- [tc-assert-count](#tc-assert-count)
 - [tc-client-function-ajax-request-with-jquery](#tc-client-function-ajax-request-with-jquery)
 - [tc-client-function-get-browser-user-agent](#tc-client-function-get-browser-user-agent)
 - [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
@@ -78,6 +79,17 @@ const getCustomObject = ClientFunction( () => {
     return scope.xxx;
 });
 const myObject = await getCustomObject();
+```
+
+### tc-assert-count
+
+```typescript
+// assert for a count value
+// see http://devexpress.github.io/testcafe/example/
+const selector = Selector("select#preferred-interface option")
+    .with({visibilityCheck: true});
+await t
+    .expect(selector.count).eql(3, {timeout: 5000});
 ```
 
 ### tc-client-function-ajax-request-with-jquery

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.56] - 2018-07-25
+### Modified
+- README.md
+- say goobye to flakyness
+
+### Added
+- tc-assert-count
+
 ## [1.0.55] - 2018-07-24
 ### Modified
 - README.md
