@@ -71,7 +71,11 @@ await t
     .pressKey("tab") // navigate to next input field
 ```
 
+In short, your test code should never do what a real user cannot do: a user will never be able to type text in a field in just one operation.
 
+Your test should always simulate the real behavior of a real user. 
+
+Any time you will take a technical shortcut to make your code more brilliant you will introduce flakyness.
 
 
 [This is a work in progress ... obviously this page is not finished]
