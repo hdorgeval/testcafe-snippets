@@ -1,11 +1,11 @@
-# Flacky or not Flacky? Say goodbye to flackyness
+# Flaky or not Flaky? Say goodbye to flakyness
 
-This is an opiniated summary on how to write tests that are not flacky.
+This is an opiniated summary on how to write tests that are not flaky.
 In other words say goodbye to the flakyness.
 
 ## Current situation
 
-A test is said to be flacky when it does not behave consistently across platform or even across executions on the same machine.
+A test is said to be flaky when it does not behave consistently across platform or even across executions on the same machine.
 
 I frequently here that kind of things:
 
@@ -22,7 +22,7 @@ It took me a lot of time to have stable tests being always green on all CI envir
 
 ## The recipe
 
-Given a flacky test, I discover that more code has always to be added to make the test pass and say goodby to flakyness.
+Given a flaky test, I discover that more code has always to be added to make the test pass and say goodby to flakyness.
 
 Let's start with a trivial example:
 
@@ -31,7 +31,7 @@ await t
     .typetext('#developer-name',"John Doe")
 ```
 
-Believe me or not, if you think the above line is enough to enter text in an input field, you will have to struggle all your life with the flackyness of your tests.
+Believe me or not, if you think the above line is enough to enter text in an input field, you will have to struggle all your life with the flakyness of your tests.
 
 Do you think a user is able to enter some text in a specific input field just by directly typing the text on the keyboard once he has entered the url in the browser?   
 Just try it. You may succeed, but you will fail very often.
@@ -52,7 +52,7 @@ A typical behavior is:
 
 Writing e2e tests is not about coding, it's only about simulating the real behavior of your users. 
 
-If you code your tests by using technical shortcuts your tests will always be flacky at one time or another. 
+If you code your tests by using technical shortcuts your tests will always be flaky at one time or another. 
 
 Typing a text in a field should always be as boilerplate as the following sequence:
 
