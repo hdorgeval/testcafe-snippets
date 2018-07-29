@@ -621,5 +621,23 @@
           "\t.expect(${1:selector}.count).eql(${3:3}, {timeout: ${4:5000}\\});"
         ],
         "description": "Assert for Selector.count value"
+      },
+      "tc-assert-exists": {
+        "prefix": "tc-assert-exists",
+        "body": [
+          "// assert the existence of a selector",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const preferredInterfaceElement = 'select#preferred-interface';",
+          "const selector = Selector(preferredInterfaceElement)",
+              "\t.find('option')",
+              "\t.withExactText('JavaScript API');",
+          "await t",
+              "\t.expect(selector.exists)",
+                  "\t\t.ok(",
+                      "\t\t\t`The element '${preferredInterfaceElement\\}' has no option named 'JavaScript API'`,",
+                      "\t\t\t{timeout: 5000},",
+                  "\t\t);"
+        ],
+        "description": "Assert the existence of a selector"
       }
 }

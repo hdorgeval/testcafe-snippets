@@ -7,6 +7,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-angularjs-enable-debug](#tc-angularjs-enable-debug)
 - [tc-angularjs-get-object-from-scope](#tc-angularjs-get-object-from-scope)
 - [tc-assert-count](#tc-assert-count)
+- [tc-assert-exists](#tc-assert-exists)
 - [tc-client-function-ajax-request-with-jquery](#tc-client-function-ajax-request-with-jquery)
 - [tc-client-function-get-browser-user-agent](#tc-client-function-get-browser-user-agent)
 - [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
@@ -90,6 +91,23 @@ const selector = Selector("select#preferred-interface option")
     .with({visibilityCheck: true});
 await t
     .expect(selector.count).eql(3, {timeout: 5000});
+```
+
+### tc-assert-exists
+
+```typescript
+// assert the existence of a selector
+// see http://devexpress.github.io/testcafe/example/
+const preferredInterfaceElement = "select#preferred-interface";
+const selector = Selector(preferredInterfaceElement)
+    .find("option")
+    .withExactText("JavaScript API");
+await t
+    .expect(selector.exists)
+        .ok(
+            `The element '${preferredInterfaceElement}' has no option named 'JavaScript API'`,
+            {timeout: 5000},
+        );
 ```
 
 ### tc-client-function-ajax-request-with-jquery
