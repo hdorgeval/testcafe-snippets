@@ -109,4 +109,52 @@ await t.expect(selector.value).eql('some value', {timeout: longTimeout}); // che
 await t.expect(selector.count).eql(N, {timeout: longTimeout}); // check that selector is a collection of N items
 ```
 
+## Evaluating a property selector and immediately testing its value
+
+Look at this code:
+
+```js
+const exists = await selector.exists;
+if (exists) {
+    // do some other checks
+} else {
+    // do other checks
+}
+```
+
+or
+
+```js
+const numberOfItems = await selector.count;
+if (numberOfItems === 0) {
+    // do some other checks
+} else {
+    // do other checks
+}
+```
+
+All above code is flaky. 
+
+When you evaluate a selector's property with a code like:
+
+```js
+const inputValue = await selector.value;
+const count = await selector.count;
+const exists = await selector.exists;
+const hasAttribute = await selector.hasAttribute('data-e2e', 'some-id');
+```
+
+The property getter is immediately invoked. 
+TestCafe will not apply the smart assertion mechanism because the property is not invoked from within an `expect` statement.
+
+This means you will always get a result corresponding of how the component looks like at the time the property getter is executed. This component may be partially mounted in the DOM, not present in the DOM, or present in the DOM but not yet visible. 
+
+A typical example is an autocomplete input box. If you evaluate the number of items showed in the suggestions list by invoking the count property of the corresponding selector, you may get different results for the same input text depending of network speed, CPU usage, memory usage.
+
+When you invoke a property selector outside of an `expect` statement there is no waiting mechanism.
+To safely invoke a selector's property you have to check that it's value has not changed within a specific amount of time. You have to repeatedly invoke the selector's property until the returned value does not change from previous call and until the returned value stays stable for enough time.
+
+Typical code should be like this code snippet : `tc-wait-until-exists-property-of-selector-is-stable` (see [README](README.md))
+
+
 [This is a work in progress ... obviously this page is not finished]
