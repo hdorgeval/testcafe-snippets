@@ -46,6 +46,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-type-text](#tc-type-text)
 - [tc-wait-for-a-selector-to-appear](#tc-wait-for-a-selector-to-appear)
 - [tc-wait-for-a-selector-to-disappear](#tc-wait-for-a-selector-to-disappear)
+- [tc-wait-until-exists-property-of-selector-is-stable](#tc-wait-until-exists-property-of-selector-is-stable)
 
 ## Supported languages (file extensions)
 
@@ -662,9 +663,76 @@ await t
 ### tc-wait-for-a-selector-to-disappear
 
 ```js
-/ wait for a selector to disappear
+// wait for a selector to disappear
 const spinner = Selector("div.loading");
 await t
     .expect(spinner.with({visibilityCheck: true}).exists).notOk({timeout: 5000});
 
+```
+
+### tc-wait-until-exists-property-of-selector-is-stable
+
+```js
+// wait until the 'exists' property of a selector is stable
+// see http://devexpress.github.io/testcafe/example/
+const mySelector = Selector("select#preferred-interface");
+await wait(2000).until(mySelector).exists.isStable();
+// now it is safe to evaluate the exists property
+const exists = await mySelector.exists;
+```
+
+`wait` function
+
+```ts
+/**
+ * waiting for selector stability
+ * @param {number} timeout : amount of time in milliseconds during which a selector property must be stable
+ */
+export function wait(timeout: number) {
+    return {
+         until: (selector: Selector) => {
+            return {
+                /**
+                 * exists property of selector
+                 */
+                exists:  {
+                    /**
+                     * wait until exists property of selector is stable
+                     */
+                    isStable: async (): Promise<void> => {
+                        const interval = 100;
+                        const elapsedTimeMaxValue = timeout * 3;
+                        let stabilityElapsedTime = 0;
+                        let previousValue = "";
+                        let elapsedTime = 0;
+                        while (true) {
+                            await t.wait(interval);
+                            const currentValue = (await selector.exists).toString();
+                            // tslint:disable-next-line:no-console
+                            console.log(`Selector exists property evaluates to '${currentValue}'`);
+                            if (currentValue !== previousValue) {
+                                stabilityElapsedTime = 0;
+                            }
+                            if (currentValue === previousValue) {
+                                stabilityElapsedTime += interval;
+                            }
+                            previousValue = currentValue;
+                            elapsedTime += interval;
+                            if (stabilityElapsedTime > timeout) {
+                                // tslint:disable-next-line:no-console
+                                console.log(`Now it is safe to check if selector exists`);
+                                return;
+                            }
+                            if (elapsedTime > elapsedTimeMaxValue) {
+                                // tslint:disable-next-line:no-console
+                                console.log(`Selector is unstable`);
+                                return;
+                            }
+                        }
+                    },
+                },
+            };
+        },
+    };
+}
 ```

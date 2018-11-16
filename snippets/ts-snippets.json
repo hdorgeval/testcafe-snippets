@@ -666,5 +666,17 @@
                   "\t\t);"
         ],
         "description": "Assert the existence of a selector"
+      },
+      "tc-wait-until-exists-property-of-selector-is-stable": {
+        "prefix": "tc-wait-until-exists-property-of-selector-is-stable",
+        "body": [
+          "// wait until the 'exists' property of a selector is stable",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const mySelector = Selector('select#preferred-interface');",
+          "await wait(2000).until(mySelector).exists.isStable();",
+          "// now it is safe to evaluate the exists property",
+          "const exists = await mySelector.exists;"
+        ],
+        "description": "Assert the existence of a selector without throwing an exception"
       }
 }
