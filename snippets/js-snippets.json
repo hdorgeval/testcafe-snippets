@@ -652,5 +652,20 @@
           "const exists = await mySelector.exists;"
         ],
         "description": "Assert the existence of a selector without throwing an exception"
+      },
+      "tc-ensure-field-is-ready-before-clicking-on-it": {
+        "prefix": "tc-ensure-field-is-ready-before-clicking-on-it",
+        "body": [
+          "// Ensure field is ready before clicking on it",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const field = Selector('input#developer-name[type=\"text\"]');",
+          "await t",
+          "\t.expect(field.with({visibilityCheck: true}).exists)",
+          "\t.ok({timeout: ${1:5000}\\})",
+          "\t.hover(field)",
+          "\t.expect(field.hasAttribute('disabled'))",
+          "\t.notOk({timeout: ${1:5000}\\});"
+        ],
+        "description": "Ensure field is ready before clicking on it"
       }
 }

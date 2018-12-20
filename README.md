@@ -18,6 +18,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-set-something-in-dom](#tc-client-function-set-something-in-dom)
 - [tc-client-function-write-to-localstorage](#tc-client-function-write-to-localstorage)
 - [tc-copy-paste-text](#tc-copy-paste-text)
+- [tc-ensure-field-is-ready-before-clicking-on-it](#tc-ensure-field-is-ready-before-clicking-on-it)
 - [tc-filter-hidden-elements](#tc-filter-hidden-elements)
 - [tc-filter-visible-elements](#tc-filter-visible-elements)
 - [tc-fixture-with-start-page](#tc-fixture-with-start-page)
@@ -305,6 +306,20 @@ await t // copy paste a text in an input box and press tab
     .click(input)
     .typeText(input, "john doe", {replace: true, paste: true})
     .pressKey("tab");
+```
+
+### tc-ensure-field-is-ready-before-clicking-on-it
+
+```typescript
+// Ensure field is ready before clicking on it
+// see http://devexpress.github.io/testcafe/example/
+const field = Selector('input#developer-name[type="text"]');
+await t
+    .expect(field.with({visibilityCheck: true}).exists)
+    .ok({timeout: 5000})
+    .hover(field)
+    .expect(field.hasAttribute('disabled'))
+    .notOk({timeout: 5000});
 ```
 
 ### tc-filter-hidden-elements
