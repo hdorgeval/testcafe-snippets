@@ -667,5 +667,27 @@
           "\t.notOk({timeout: ${1:5000}\\});"
         ],
         "description": "Ensure field is ready before clicking on it"
+      },
+      "tc-type-text-letter-by-letter": {
+        "prefix": "tc-type-text-letter-by-letter",
+        "body": [
+          "// Type text letter by letter like a real user",
+          "// usefull when you want to test the behavior of autocomplete fields",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const selector = Selector('input#developer-name[type=\"text\"]');",
+          "const letters = [...'john doe'];",
+          "let index = -1;",
+          "for (const letter of letters) {",
+              "\tindex += 1;",
+              "\tif (index === 0) {",
+                  "\t\tawait t.typeText(selector,letter, {replace: true});",
+                  "\t\tcontinue;",
+              "\t}",
+              "\tawait t",
+                  "\t\t.wait(100)",
+                  "\t\t.typeText(selector,letter);",
+          "}"
+        ],
+        "description": "Type text letter by letter like a real user"
       }
 }

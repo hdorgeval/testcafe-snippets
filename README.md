@@ -45,6 +45,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-test](#tc-test)
 - [tc-test-with-hooks](#tc-test-with-hooks)
 - [tc-type-text](#tc-type-text)
+- [tc-type-text-letter-by-letter](#tc-type-text-letter-by-letter)
 - [tc-wait-for-a-selector-to-appear](#tc-wait-for-a-selector-to-appear)
 - [tc-wait-for-a-selector-to-disappear](#tc-wait-for-a-selector-to-disappear)
 - [tc-wait-until-exists-property-of-selector-is-stable](#tc-wait-until-exists-property-of-selector-is-stable)
@@ -662,6 +663,27 @@ await t // type a text in an input box and press tab
     .click(input)
     .typeText(input, "john doe", {replace: true})
     .pressKey("tab");
+```
+
+### tc-type-text-letter-by-letter
+
+```js
+// Type text letter by letter like a real user
+// usefull when you want to test the behavior of autocomplete fields
+// see http://devexpress.github.io/testcafe/example/
+const selector = Selector('input#developer-name[type="text"]');
+const letters = [...'john doe'];
+let index = -1;
+for (const letter of letters) {
+    index += 1;
+    if (index === 0) {
+        await t.typeText(selector,letter, {replace: true});
+        continue;
+    }
+    await t
+        .wait(100)
+        .typeText(selector,letter);
+}
 ```
 
 ### tc-wait-for-a-selector-to-appear
