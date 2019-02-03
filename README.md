@@ -11,6 +11,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-ajax-request-with-jquery](#tc-client-function-ajax-request-with-jquery)
 - [tc-client-function-get-browser-user-agent](#tc-client-function-get-browser-user-agent)
 - [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
+- [tc-client-function-get-style-attribute](#tc-client-function-get-style-attribute)
 - [tc-client-function-get-window-state](#tc-client-function-get-window-state)
 - [tc-client-function-measure-execution-time](#tc-client-function-measure-execution-time)
 - [tc-client-function-read-localstorage](#tc-client-function-read-localstorage)
@@ -189,6 +190,22 @@ const getInputDetails = ClientFunction((selector: Selector) => {
     });
 });
 const inputDetails = await getInputDetails(inputSelector);
+```
+
+### tc-client-function-get-style-attribute
+
+```typescript
+// you need to import {ClientFunction} from 'testcafe';
+// get style attribute of a Selector
+// see http://devexpress.github.io/testcafe/example/
+const getStyleAttributeOf = ClientFunction((selector: Selector) => {
+    const element = selector();
+    return element.getAttribute('style');
+});
+
+const field = Selector('div#slider > span');
+const styles = await getStyleAttributeOf(field) || '';
+console.log(`styles = '${styles}'`);
 ```
 
 ### tc-client-function-get-window-state

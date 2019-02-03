@@ -716,7 +716,22 @@
           "}"
         ],
         "description": "Type text letter by letter like a real user"
+      },
+      "tc-client-function-get-style-attribute": {
+        "prefix": "tc-client-function-get-style-attribute",
+        "body": [
+          "// you need to import {ClientFunction} from 'testcafe';",
+          "// get style attribute of a Selector",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const getStyleAttributeOf = ClientFunction((selector: Selector) => {",
+            "\tconst element = selector();",
+            "\treturn element.getAttribute('style');",
+          "});",
+          "",
+          "const field = Selector('div#slider > span');",
+          "const styles = await getStyleAttributeOf(field) || '';",
+          "console.log(`styles = '\\${styles}'`);"
+        ],
+        "description": "Get content of style attribute"
       }
 }
-
-
