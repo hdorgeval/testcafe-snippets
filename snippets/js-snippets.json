@@ -706,5 +706,22 @@
           "console.log(`styles = '\\${styles}'`);"
         ],
         "description": "Get content of style attribute"
+      },
+      "tc-client-function-set-style-attribute": {
+        "prefix": "tc-client-function-set-style-attribute",
+        "body": [
+          "// you need to import {ClientFunction} from 'testcafe';",
+          "// get style attribute of a Selector",
+          "// see http://devexpress.github.io/testcafe/example/",
+          "const setStyleAttributeOf = ClientFunction((selector, styleValue) => {",
+            "\tconst element = selector();",
+            "\telement.setAttribute('style', styleValue);",
+          "});",
+          "",
+          "const field = Selector('div#slider > span');",
+          "const newStyles = 'left: 50%;';",
+          "await setStyleAttributeOf(field, newStyles);"
+        ],
+        "description": "Set content of style attribute"
       }
 }

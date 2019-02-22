@@ -12,6 +12,7 @@ Use the `tc-` prefix to access snippets:
 - [tc-client-function-get-browser-user-agent](#tc-client-function-get-browser-user-agent)
 - [tc-client-function-get-something-from-dom](#tc-client-function-get-something-from-dom)
 - [tc-client-function-get-style-attribute](#tc-client-function-get-style-attribute)
+- [tc-client-function-set-style-attribute](#tc-client-function-set-style-attribute)
 - [tc-client-function-get-window-state](#tc-client-function-get-window-state)
 - [tc-client-function-measure-execution-time](#tc-client-function-measure-execution-time)
 - [tc-client-function-read-localstorage](#tc-client-function-read-localstorage)
@@ -206,6 +207,22 @@ const getStyleAttributeOf = ClientFunction((selector: Selector) => {
 const field = Selector('div#slider > span');
 const styles = await getStyleAttributeOf(field) || '';
 console.log(`styles = '${styles}'`);
+```
+
+### tc-client-function-set-style-attribute
+
+```typescript
+// you need to import {ClientFunction} from 'testcafe';
+// get style attribute of a Selector
+// see http://devexpress.github.io/testcafe/example/
+const setStyleAttributeOf = ClientFunction((selector: Selector, styleValue: string) => {
+    const element: any = selector();
+    element.setAttribute('style', styleValue);
+});
+
+const field = Selector('div#slider > span');
+const newStyles = 'left: 50%;';
+await setStyleAttributeOf(field, newStyles);
 ```
 
 ### tc-client-function-get-window-state
